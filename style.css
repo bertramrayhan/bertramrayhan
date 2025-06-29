@@ -1,0 +1,242 @@
+@font-face {
+    font-family:"Inter";
+    src:url('assets/fonts/subset-Inter-Regular.woff2') format('woff2'), 
+    url('assets/fonts/subset-Inter-Regular.woff') format('woff');
+}
+
+html {
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 16px;
+    height: 2000px; /* JANGAN LUPA HAPUS INI. BUAT DEBUGGING*/
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #1F2A44;
+}
+
+h2 {
+    font-size: 2.25rem;
+    color: #1F2A44;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #1F2A44;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #3D3D3D;
+}
+
+.primary-button {
+    background-color: #1F2A44;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: none;
+    width: 202px;
+    height: 49px;
+    cursor: pointer;
+
+    transition: 
+    background-color 300ms ease-in-out,
+    transform 100ms ease-in-out;
+}
+
+/* Hover ke Active: ease-out 200ms */
+.primary-button:hover:active, .secondary-button:hover:active {
+    color: #fff;
+    transition: 
+    background-color 200ms ease-out,
+    transform 100ms ease-out;
+}
+
+/* Active ke Hover: ease-in 200ms */
+.primary-button:active:hover, .secondary-button:active:hover {
+    transition: 
+    background-color 200ms ease-in,
+    transform 100ms ease-in;
+}
+
+/* Hover state */
+.primary-button:hover, .secondary-button:hover {
+    background-color: #4F6D7A;
+    color: #fff;
+}
+
+/* Active (klik) state */
+.primary-button:active, .secondary-button:active {
+    background-color: #3A4E5A;
+    transform: scale(0.97); /* kasih feel tombol ditekan */
+}
+
+.secondary-button {
+    background-color: transparent;
+    border-color: #1F2A44;
+    color: #1F2A44;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    width: 202px;
+    height: 49px;
+    cursor: pointer;
+    
+    transition: 
+    background-color 300ms ease-in-out,
+    transform 100ms ease-in-out,
+    color 200ms ease-in-out;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #1F2A44;
+    transition: color 300ms ease-in-out;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #4F6D7A;
+
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+a:hover {
+    color: #4F6D7A;
+}
+
+a:hover::after {
+    opacity: 1;
+}
+
+.separator {
+    width: 263px;
+    height: 2px;
+    background-color: #4F6D7A; 
+    border: none;
+    margin: 0 auto;
+}
+
+.tech-stack-icon {
+    width: 52px;
+    height: 52px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #1F2A44;
+    color: #fff;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+body {
+    background-color: #F7F9FB;
+    margin: 0;
+    padding: 121px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    background-color: #F7F9FB;
+    height: 121px;
+    padding: 36px 32px 36px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navigation {
+    display: flex;
+}
+
+#navigation nav {
+    padding: 10px 50px 10px 0;
+    display: flex;
+    gap: 50px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    gap: 100px;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px 0 25px 0;
+    scroll-margin-top: 121px;
+}
+
+.section-text {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 880px;
+    margin: 0 auto 25px auto;
+    gap: 35px;
+}
+
+.section-body {
+    padding: 10px 0 10px 0;
+}
+
+#hero-button {
+    display: flex;
+    gap: 61px;
+    margin: 0 auto;
+}
+
+.tech-stack-list {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* ukuran ngikutin konten */
+    gap: 30px 50px; /* row gap 16px, column gap 48px */
+    justify-content: center; /* biar grid-nya di tengah */
+    align-items: center;
+}
