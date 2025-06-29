@@ -53,6 +53,30 @@ p {
     transform 100ms ease-in-out;
 }
 
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid #1F2A44;
+    color: #1F2A44;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    width: 202px;
+    height: 49px;
+    cursor: pointer;
+    
+    transition: 
+    background-color 300ms ease-in-out,
+    transform 100ms ease-in-out,
+    color 200ms ease-in-out;
+}
+
+/* Styling khusus untuk anchor tags */
+.primary-button, .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
 /* Hover ke Active: ease-out 200ms */
 .primary-button:hover:active, .secondary-button:hover:active {
     color: #fff;
@@ -80,28 +104,20 @@ p {
     transform: scale(0.97); /* kasih feel tombol ditekan */
 }
 
-.secondary-button {
-    background-color: transparent;
-    border-color: #1F2A44;
-    color: #1F2A44;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    width: 202px;
-    height: 49px;
-    cursor: pointer;
-    
-    transition: 
-    background-color 300ms ease-in-out,
-    transform 100ms ease-in-out,
-    color 200ms ease-in-out;
-}
-
 a {
     position: relative;
     text-decoration: none;
     font-size: 1.5rem;
     color: #1F2A44;
     transition: color 300ms ease-in-out;
+}
+
+a.secondary-button, a.primary-button {
+    position: static;
+}
+
+a.secondary-button::after, a.primary-button::after {
+    display: none;
 }
 
 a::after {
@@ -239,4 +255,8 @@ main {
     gap: 30px 50px; /* row gap 16px, column gap 48px */
     justify-content: center; /* biar grid-nya di tengah */
     align-items: center;
+}
+
+#project-grid {
+    margin-top: 35px;
 }
