@@ -8,7 +8,7 @@ html {
     font-family: "Inter";
     font-weight: 400;
     font-size: 16px;
-    height: 2000px; /* JANGAN LUPA HAPUS INI. BUAT DEBUGGING*/
+    height: 2000px; /*JANGAN LUPA UNTUK HAPUS INI*/
     scroll-behavior: smooth;
 }
 
@@ -105,22 +105,17 @@ p {
 }
 
 a {
-    position: relative;
     text-decoration: none;
     font-size: 1.5rem;
     color: #1F2A44;
     transition: color 300ms ease-in-out;
 }
 
-a.secondary-button, a.primary-button {
-    position: static;
+header a {
+    position: relative;
 }
 
-a.secondary-button::after, a.primary-button::after {
-    display: none;
-}
-
-a::after {
+header nav a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -133,11 +128,11 @@ a::after {
     transition: opacity 300ms ease-in-out;
 }
 
-a:hover {
+header nav a:hover {
     color: #4F6D7A;
 }
 
-a:hover::after {
+header nav a:hover::after {
     opacity: 1;
 }
 
@@ -147,6 +142,15 @@ a:hover::after {
     background-color: #4F6D7A; 
     border: none;
     margin: 0 auto;
+}
+
+.separator-project {
+    width: 100%;
+    height: 0;
+    border: none;
+    border-bottom: 1px solid #4F6D7A;
+    margin: 0;
+
 }
 
 .tech-stack-icon {
@@ -183,10 +187,41 @@ a:hover::after {
     opacity: 1;
 }
 
+.icon-link {
+    display: inline-block;
+    cursor: pointer;
+    color: #1F2A44;
+
+    transition: 
+    color 300ms ease-in-out,
+    transform 100ms ease-in-out;
+}
+
+.icon-link:hover {
+    color: #4F6D7A;
+}
+
+.icon-link:hover:active {
+    transition: 
+    color 200ms ease-out,
+    transform 100ms ease-out;
+}
+
+.icon-link:active:hover {
+    transition: 
+    color 200ms ease-in,
+    transform 100ms ease-in;
+}
+
+.icon-link:active {
+    color: #3A4E5A;
+    transform: scale(0.90);
+}
+
 body {
     background-color: #F7F9FB;
     margin: 0;
-    padding: 121px;
+    padding: 0;
 }
 
 header {
@@ -217,8 +252,9 @@ header {
 main {
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
+    margin-top: 121px;
     gap: 100px;
+    padding: 25px 32px;
 }
 
 .section {
@@ -252,11 +288,47 @@ main {
 .tech-stack-list {
     display: grid;
     grid-template-columns: repeat(3, auto); /* ukuran ngikutin konten */
-    gap: 30px 50px; /* row gap 16px, column gap 48px */
+    gap: 30px 50px;
     justify-content: center; /* biar grid-nya di tengah */
     align-items: center;
 }
 
 #project-grid {
     margin-top: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 113px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 514px;
+}
+
+.project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.project-text > *:not(hr) {
+    padding: 10px 0;
+}
+
+.project-text > hr {
+    padding: 5px 0;
+}
+
+.project-card .tech-stack-list {
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.project-link {
+    display: flex;
+    gap: 20px;
 }
