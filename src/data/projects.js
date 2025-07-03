@@ -1,8 +1,8 @@
 export const projects = [
     {
-        name: "Project Title",
+        name: "Aplikasi Kasir DumDumCell",
         image: "src/assets/images/halaman-beranda-pemilik.png",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum urna quis magna lobortis, eget finibus urna vestibulum. Sed nec ex non justo dictum venenatis. Fusce nec purus nec mauris posuere malesuada",
+        description: "Aplikasi Kasir DumDumCell membantu operasional bisnis DumDum Cellular dengan dilengkapi fitur unggulan seperti login RFID, barcode scanner, dan cetak struk otomatis. Sistem ini memiliki dua level akses (karyawan dan pemilik), serta mendukung pemantauan stok, transaksi penjualan, dan laporan otomatis dengan tampilan user-friendly.",
         github: "https://github.com/bertramrayhan/dumdumcell",
         release: "https://github.com/bertramrayhan/dumdumcell/releases/tag/v1.0.0",
         tech: ["java", "css3"]
