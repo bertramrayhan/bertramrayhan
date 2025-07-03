@@ -8,7 +8,6 @@ html {
     font-family: "Inter";
     font-weight: 400;
     font-size: 16px;
-    height: 3000px; /* JANGAN LUPA DIHAPUS */
     scroll-behavior: smooth;
 }
 
@@ -63,7 +62,7 @@ p {
 
 .secondary-button {
     background-color: transparent;
-    border: 2px solid #1F2A44;
+    border: 0.1rem solid #1F2A44;
     color: #1F2A44;
     font-size: 1.5rem;
     border-radius: 10px;
@@ -146,10 +145,20 @@ header nav a:hover::after {
 
 .separator {
     width: 263px;
-    height: 2px;
-    background-color: #4F6D7A; 
+    height: 0;
+    border: none;
+    border-bottom: 1px solid #4F6D7A;
+    margin: 0 auto;
+    display: block;
+}
+
+.separator-contact {
+    width: 263px;
+    height: 0.1rem;
+    background-color: #4F6D7A;
     border: none;
     margin: 0 auto;
+    display: block;
 }
 
 .separator-project {
@@ -158,7 +167,6 @@ header nav a:hover::after {
     border: none;
     border-bottom: 1px solid #4F6D7A;
     margin: 0;
-
 }
 
 .tech-stack-icon {
@@ -195,35 +203,42 @@ header nav a:hover::after {
     opacity: 1;
 }
 
-.icon-link {
+.icon-link, .contact-link {
     display: inline-block;
     cursor: pointer;
-    color: #1F2A44;
-
+    
     transition: 
     color 300ms ease-in-out,
     transform 100ms ease-in-out;
 }
 
-.icon-link:hover {
+.icon-link {
+    color: #1F2A44;
+}
+
+.contact-link {
+    color: #fff;
+}
+
+.icon-link:hover, .contact-link:hover {
     color: #4F6D7A;
 }
 
-.icon-link:hover:active {
+.icon-link:active, .contact-link:active {
+    color: #3A4E5A;
+    transform: scale(0.90);
+}
+
+.icon-link:hover:active, .contact-link:hover:active {
     transition: 
     color 200ms ease-out,
     transform 100ms ease-out;
 }
 
-.icon-link:active:hover {
+.icon-link:active:hover, .contact-link:active:hover {
     transition: 
     color 200ms ease-in,
     transform 100ms ease-in;
-}
-
-.icon-link:active {
-    color: #3A4E5A;
-    transform: scale(0.90);
 }
 
 input {
@@ -268,6 +283,46 @@ textarea:focus {
 textarea::placeholder {
     color: #A0A0A0;
     font-size: 1.25rem;
+}
+
+.notification {
+  position: fixed;
+  bottom: 3.25rem; /* ubah dari 2rem ke 4rem untuk lebih naik */
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: #1F2A44; /* warna tombol default */
+  color: white;
+  padding: 1.25rem 1.75rem;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 999;
+  border: none;
+}
+
+.notification h3 {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.notification.error {
+  background-color: #842029;
+  color: white;
+}
+
+.notification.error h3 {
+  color: white;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.notification.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100px);
 }
 
 body {
@@ -426,6 +481,31 @@ main {
 
 #contact-form-wrapper {
     border: none;
-    padding: 0;
-    margin: 0;
+    margin-top: 25px;
+}
+
+footer {
+    background-color: #1F2A44;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+footer h2 {
+    color: #fff;
+    font-weight: 700;
+}
+
+footer h3 {
+    color: #D3DDE6;
+    font-weight: 500;
+}
+
+#footer-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
 }
