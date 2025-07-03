@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.css"/>
 </head>
 
 <body>
+    <!-- icon github link -->
     <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
         <symbol id="icon-github" viewBox="0 0 54 54" fill="none">
             <path d="M27 0C41.9175 0 54 12.0825 54 27C54.0001 32.6575 52.2252 38.1726 48.9254 42.7681C45.6255 47.3636 40.9671 50.8081 35.6063 52.6163C34.2563 52.8863 33.75 52.0425 33.75 51.3338C33.75 50.4225 33.7838 47.52 33.7838 43.9088C33.7838 41.3775 32.94 39.7575 31.9613 38.9137C37.9688 38.2387 44.28 35.9437 44.28 25.5825C44.28 22.6125 43.2338 20.2162 41.5125 18.3262C41.7825 17.6512 42.7275 14.8837 41.2425 11.1712C41.2425 11.1712 38.9813 10.4288 33.8175 13.9388C31.6575 13.3313 29.3625 13.0275 27.0675 13.0275C24.7725 13.0275 22.4775 13.3313 20.3175 13.9388C15.1538 10.4625 12.8925 11.1712 12.8925 11.1712C11.4075 14.8837 12.3525 17.6512 12.6225 18.3262C10.9013 20.2162 9.855 22.6462 9.855 25.5825C9.855 35.91 16.1325 38.2387 22.14 38.9137C21.3638 39.5887 20.655 40.77 20.4188 42.525C18.8663 43.2338 14.985 44.3812 12.555 40.2975C12.0488 39.4875 10.53 37.4962 8.40375 37.53C6.1425 37.5637 7.4925 38.8125 8.4375 39.3187C9.585 39.96 10.9013 42.3562 11.205 43.1325C11.745 44.6512 13.5 47.5538 20.2838 46.305C20.2838 48.5663 20.3175 50.6925 20.3175 51.3338C20.3175 52.0425 19.8113 52.8525 18.4613 52.6163C13.0837 50.8263 8.40623 47.3884 5.09251 42.7904C1.77878 38.1924 -0.00297162 32.6677 3.7203e-06 27C3.7203e-06 12.0825 12.0825 0 27 0Z" fill="currentColor"/>
         </symbol>
     </svg>
 
+    <!-- icon link live -->
     <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
         <symbol id="icon-link-live" viewBox="0 0 150 150" fill="none">
             <path d="M72.8908 30.7031L84.6096 18.9843C87.6567 15.9373 91.2741 13.5202 95.2553 11.8711C99.2365 10.2221 103.503 9.37329 107.813 9.37329C112.122 9.37329 116.389 10.2221 120.37 11.8711C124.351 13.5202 127.969 15.9373 131.016 18.9843C134.063 22.0314 136.48 25.6488 138.129 29.63C139.778 33.6112 140.627 37.8782 140.627 42.1875C140.627 46.4967 139.778 50.7637 138.129 54.7449C136.48 58.7261 134.063 62.3435 131.016 65.3906L107.578 88.8281C104.531 91.8754 100.914 94.2926 96.9328 95.9418C92.9516 97.591 88.6845 98.4398 84.3752 98.4398C80.0659 98.4398 75.7988 97.591 71.8176 95.9418C67.8364 94.2926 64.2191 91.8754 61.1721 88.8281C59.9308 87.4944 59.2548 85.7314 59.2863 83.9097C59.3177 82.088 60.0542 80.3494 61.3408 79.0593C62.6309 77.7727 64.3694 77.0362 66.1912 77.0048C68.0129 76.9733 69.7759 77.6493 71.1096 78.8906C72.8497 80.6361 74.9172 82.0211 77.1936 82.9661C79.47 83.9111 81.9105 84.3975 84.3752 84.3975C86.8399 84.3975 89.2804 83.9111 91.5568 82.9661C93.8332 82.0211 95.9007 80.6361 97.6408 78.8906L121.078 55.4531C124.425 51.9005 126.257 47.1836 126.184 42.3032C126.111 37.4227 124.14 32.7625 120.689 29.3112C117.238 25.8598 112.577 23.8887 107.697 23.816C102.817 23.7433 98.0997 25.5748 94.5471 28.9218L82.8283 40.6406C81.4946 41.8819 79.7316 42.5579 77.9099 42.5264C76.0882 42.4949 74.3496 41.7585 73.0596 40.4718C71.7729 39.1818 71.0365 37.4432 71.005 35.6215C70.9735 33.7998 71.6495 32.0368 72.8908 30.7031ZM28.9221 121.078C30.6622 122.824 32.7297 124.209 35.0061 125.154C37.2825 126.099 39.723 126.585 42.1877 126.585C44.6524 126.585 47.0929 126.099 49.3693 125.154C51.6457 124.209 53.7132 122.824 55.4533 121.078L67.1721 109.359C68.5058 108.118 70.2688 107.442 72.0905 107.474C73.9122 107.505 75.6508 108.241 76.9408 109.528C78.2275 110.818 78.9639 112.557 78.9954 114.378C79.0269 116.2 78.3509 117.963 77.1096 119.297L65.3908 131.016C62.3438 134.063 58.7263 136.48 54.7451 138.129C50.764 139.778 46.4969 140.627 42.1877 140.627C33.4848 140.627 25.1384 137.169 18.9846 131.016C12.8307 124.862 9.37354 116.515 9.37354 107.812C9.37354 99.1096 12.8307 90.7632 18.9846 84.6093L42.4221 61.1718C45.4691 58.1246 49.0864 55.7073 53.0676 54.0581C57.0488 52.4089 61.3159 51.5601 65.6252 51.5601C69.9345 51.5601 74.2016 52.4089 78.1828 54.0581C82.164 55.7073 85.7814 58.1246 88.8283 61.1718C90.0697 62.5055 90.7456 64.2685 90.7142 66.0903C90.6827 67.912 89.9462 69.6506 88.6596 70.9406C87.3696 72.2272 85.631 72.9637 83.8092 72.9952C81.9875 73.0266 80.2245 72.3507 78.8908 71.1093C77.1507 69.3638 75.0832 67.9788 72.8068 67.0338C70.5304 66.0889 68.0899 65.6024 65.6252 65.6024C63.1605 65.6024 60.72 66.0889 58.4436 67.0338C56.1672 67.9788 54.0997 69.3638 52.3596 71.1093L28.9221 94.5468C27.1765 96.2869 25.7916 98.3545 24.8466 100.631C23.9016 102.907 23.4152 105.348 23.4152 107.812C23.4152 110.277 23.9016 112.718 24.8466 114.994C25.7916 117.27 27.1765 119.338 28.9221 121.078Z" fill="currentColor"/>
@@ -37,9 +39,10 @@
     </header>
 
     <main>
+        <!-- hero section -->
         <div id="hero" class="section">
             <div class="section-text">
-                <h1 style="padding: 10px 0 10px 0;">Developer Name</h1>
+                <h1>Developer Name</h1>
                 <hr class="separator">
                 <div class="section-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum urna quis magna lobortis, eget finibus urna vestibulum. Sed nec ex non justo dictum venenatis. Fusce nec purus nec mauris posuere malesuada</p>
@@ -52,6 +55,7 @@
             </div>
         </div>
 
+        <!-- about section -->
         <div id="about" class="section">
             <div class="section-text">
                 <h2>About</h2>
@@ -61,132 +65,82 @@
                 </div>
                 <div class="tech-stack-list">
                     <div class="tooltip">
-                        <img src="assets/icons/java-original-wordmark.svg" alt="Java logo" class="tech-stack-icon">
+                        <img src="src/assets/icons/java-original-wordmark.svg" alt="Java logo" class="tech-stack-icon">
                         <span class="tooltip-text">Java</span>
                     </div>
                     <div class="tooltip">
-                        <img src="assets/icons/mysql-original-wordmark.svg" alt="MySQL logo" class="tech-stack-icon">
+                        <img src="src/assets/icons/mysql-original-wordmark.svg" alt="MySQL logo" class="tech-stack-icon">
                         <span class="tooltip-text">MySQL</span>
                     </div>
                     <div class="tooltip">
-                        <img src="assets/icons/python-original.svg" alt="Python logo" class="tech-stack-icon">
+                        <img src="src/assets/icons/python-original.svg" alt="Python logo" class="tech-stack-icon">
                         <span class="tooltip-text">Python</span>
                     </div>
                     <div class="tooltip">
-                        <img src="assets/icons/html5-original.svg" alt="HTML5 logo" class="tech-stack-icon">
+                        <img src="src/assets/icons/html5-original.svg" alt="HTML5 logo" class="tech-stack-icon">
                         <span class="tooltip-text">HTML5</span>
                     </div>
                     <div class="tooltip">
-                        <img src="assets/icons/css3-original.svg" alt="CSS3 logo" class="tech-stack-icon">
+                        <img src="src/assets/icons/css3-original.svg" alt="CSS3 logo" class="tech-stack-icon">
                         <span class="tooltip-text">CSS3</span>
                     </div>
                     <div class="tooltip">
-                        <img src="assets/icons/git-original.svg" alt="Git logo" class="tech-stack-icon">
+                        <img src="src/assets/icons/git-original.svg" alt="Git logo" class="tech-stack-icon">
                         <span class="tooltip-text">Git</span>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- projects section -->
         <div id="projects" class="section">
             <div class="section-text">
                 <h2>Projects</h2>
-                <hr class="separator">
+                <hr class="separator" style="height: 1px;">
             </div>
             <div id="project-grid">
                 
             </div>
         </div>
+
+        <!-- contact section -->
+        <div id="contact" class="section">
+            <div class="section-text">
+                <h2>Contact</h2>
+                <hr class="separator" style="height: 1px;">
+            </div>
+
+            <form id="contact-form-wrapper">
+                <div id="contact-form">
+                    <div id="textfield-form">
+                        <div class="input-box">
+                            <p>Nama</p>
+                            <input type="text" placeholder="Masukkan Nama" name="name" required>
+                        </div>
+                        <div class="input-box">
+                            <p>Email</p>
+                            <input type="email" placeholder="Masukkan Email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div id="textarea-form">
+                        <div class="input-box">
+                            <p>Pesan</p>
+                            <textarea placeholder="Masukkan Pesan" name="message" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="submit-container">
+                    <button type="submit" class="primary-button">Submit</button>
+                </div>
+            </form>
+        </div>
     </main>
+
+    <script type="module" src="/src/main.js"></script>
 
     <!-- FancyBox Script -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script>
-
-    <script>
-        // Tunggu DOM siap
-        document.addEventListener('DOMContentLoaded', function() {
-            const projects = [
-                {
-                    name: "Project Title",
-                    image: "assets/images/halaman-beranda-pemilik.png",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum urna quis magna lobortis, eget finibus urna vestibulum. Sed nec ex non justo dictum venenatis. Fusce nec purus nec mauris posuere malesuada",
-                    github: "https://github.com/bertramrayhan/dumdumcell",
-                    release: "https://github.com/bertramrayhan/dumdumcell/releases/tag/v1.0.0",
-                    tech: ["java", "css3"]
-                }
-                // bisa tambahin project lain di sini
-            ];
-
-            const techIcons = {
-                java: {
-                    src: "assets/icons/java-original-wordmark.svg",
-                    name: "Java"
-                },
-                css3: {
-                    src: "assets/icons/css3-original.svg",
-                    name: "CSS3"
-                }
-                // tambahin tech lainnya kalo ada
-            };
-
-            // Selector yang benar - pakai ID
-            const projectGrid = document.querySelector('#project-grid');
-            
-            // Hapus project card yang ada (hardcoded)
-            projectGrid.innerHTML = '';
-
-            projects.forEach((project) => {
-                const card = document.createElement('div');
-                card.classList.add('project-card');
-                
-                const techStackHTML = project.tech.map(tech => `
-                    <div class="tooltip">
-                        <img src="${techIcons[tech].src}" alt="${techIcons[tech].name} logo" class="tech-stack-icon">
-                        <span class="tooltip-text">${techIcons[tech].name}</span>
-                    </div>
-                `).join('');
-
-                card.innerHTML = `
-                    <a data-fancybox="gallery" href="${project.image}">
-                        <img src="${project.image}" alt="Photo Project ${project.name}" style="width: 514px;height: 274px;">
-                    </a>
-                    <div class="project-text">
-                        <h3>${project.name}</h3>
-                        <hr class="separator-project">
-                        <p style="text-align: justify;">${project.description}</p>
-                    </div>
-                    <div class="tech-stack-list">
-                        ${techStackHTML}
-                    </div>
-                    <div class="project-link">
-                        <a href="${project.github}" target="_blank" class="icon-link">
-                            <svg width="35" height="35" viewBox="0 0 54 54" fill="none">
-                                <use href="#icon-github"></use>
-                            </svg>
-                        </a>
-                        <a href="${project.release}" target="_blank" class="icon-link">
-                            <svg width="35" height="35" viewBox="0 0 150 150" fill="none">
-                                <use href="#icon-link-live"></use>
-                            </svg>
-                        </a>
-                    </div>
-                `;
-
-                projectGrid.appendChild(card);
-            });
-
-            // Inisialisasi FancyBox setelah DOM selesai dibuat
-            if (window.Fancybox) {
-                Fancybox.bind("[data-fancybox]", {
-                    // Options FancyBox
-                    infinite: false,
-                    hideScrollbar: false,
-                    Thumbs: {
-                        showOnStart: false
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
