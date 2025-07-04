@@ -38,7 +38,7 @@
 
 ### 🧾 Offline POS System based Desktop App  
 Cashier system with offline support and RFID attendance  
-🔗 [View Repository](https://github.com/bertramrayhan/dumdumcell)  
+📂 [View Repository](https://github.com/bertramrayhan/dumdumcell)  
 📸 Screenshot:  
 <img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/halaman-beranda-pemilik.png" width="500"/>
 
@@ -46,9 +46,10 @@ Cashier system with offline support and RFID attendance
 
 ### 🌐 Portfolio Website  
 A personal site to showcase skills and projects  
-🔗 [View Repository](https://github.com/bertramrayhan/bertramrayhan)  
+📂 [View Repository](https://github.com/bertramrayhan/bertramrayhan)
+🔗 [Visit Website](bertramrayhan.vercel.app)
 📸 Screenshot:  
-*Coming Soon*
+<img src="https://raw.githubusercontent.com/bertramrayhan/bertramrayhan/main/src/assets/images/demo-portfolio-en.png" width="500"/>
 
 <br/>
 
