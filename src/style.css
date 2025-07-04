@@ -143,6 +143,28 @@ header nav a:hover::after {
     opacity: 1;
 }
 
+.language-toggle {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #1F2A44;
+}
+
+.language-toggle a {
+    text-decoration: none;
+    color: #1F2A44;
+    transition: color 300ms ease-in-out;
+}
+
+.language-toggle a:hover {
+    color: #4F6D7A; /* Warna hover yang sama dengan navigasi */
+}
+
+.language-toggle a:active {
+    color: #3A4E5A; /* Contoh: warna aksen */
+}
+
 .separator {
     width: 263px;
     height: 0;
@@ -287,10 +309,10 @@ textarea::placeholder {
 
 .notification {
   position: fixed;
-  bottom: 3.25rem; /* ubah dari 2rem ke 4rem untuk lebih naik */
+  bottom: 3.25rem;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background-color: #1F2A44; /* warna tombol default */
+  background-color: #4CAF50; /* warna tombol default */
   color: white;
   padding: 1.25rem 1.75rem;
   border-radius: 10px;
@@ -307,7 +329,7 @@ textarea::placeholder {
 }
 
 .notification.error {
-  background-color: #842029;
+  background-color: #F44336;
   color: white;
 }
 
@@ -348,12 +370,15 @@ header {
 
 #navigation {
     display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 #navigation nav {
-    padding: 10px 50px 10px 0;
+    padding: 10px 0px 10px 0;
     display: flex;
     gap: 50px;
+    
 }
 
 main {
