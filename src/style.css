@@ -300,9 +300,10 @@ textarea::placeholder {
 
 .notification {
   position: fixed;
+  width: 233px;
   bottom: 3.25rem;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
+  transform: translateX(-50%) translateY(122px);
   background-color: #4CAF50; /* warna tombol default */
   color: white;
   padding: 1.25rem 1.75rem;
