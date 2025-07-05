@@ -28,7 +28,7 @@ export function generateProjectCardHTML(project, language = 'id') {
     
     return `
         <a data-fancybox="gallery" href="${project.image}">
-            <img src="${project.image}" alt="Photo Project ${project.name}" style="width: 514px;height: 274px;">
+            <img src="${project.image}" alt="Photo Project ${project.name}">
         </a>
         <div class="project-text">
             <h3>${project.name}</h3>

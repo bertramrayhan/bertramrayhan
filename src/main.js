@@ -44,6 +44,38 @@ document.getElementById("contact-form-wrapper").addEventListener("submit", funct
   });
 });
 
+//membuat hamburger menu
+function openHamburgerMenu() {
+    const hamburger = document.querySelector('#hamburger');
+    const navigation = document.querySelector('#navigation');
+    const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('#navigation nav a'); // Ambil semua link navigation
+    const btnNavLinks = document.querySelectorAll('#navigation a.primary-button');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');      // bikin garis jadi silang
+        navigation.classList.toggle('active');
+        header.classList.toggle('menu-open');
+    });
+
+    // Tutup menu ketika link navigation diklik
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navigation.classList.remove('active');
+            header.classList.remove('menu-open');
+        });
+    });
+
+    btnNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navigation.classList.remove('active');
+            header.classList.remove('menu-open');
+        });
+    });
+}
+
 // Tunggu DOM siap untuk generate project cards
 document.addEventListener('DOMContentLoaded', function() {
     // Deteksi bahasa berdasarkan URL
@@ -60,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Render semua project cards dengan bahasa
     renderProjectCards(projects, projectGrid, currentLanguage);
+    //membuka hamburger menu
+    openHamburgerMenu();
 
     // Inisialisasi FancyBox setelah DOM selesai dibuat
     if (window.Fancybox) {

@@ -167,18 +167,9 @@ header nav a:hover::after {
 
 .separator {
     width: 263px;
-    height: 0;
+    height: 1px;
     border: none;
-    border-bottom: 1px solid #4F6D7A;
-    margin: 0 auto;
-    display: block;
-}
-
-.separator-contact {
-    width: 263px;
-    height: 0.1rem;
     background-color: #4F6D7A;
-    border: none;
     margin: 0 auto;
     display: block;
 }
@@ -371,14 +362,69 @@ header {
 #navigation {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 #navigation nav {
     padding: 10px 0px 10px 0;
     display: flex;
-    gap: 50px;
-    
+    gap: clamp(1.25rem, 3vw, 3.125rem);
+}
+
+#navigation-mobile {
+    display: none;
+    align-items: center;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+#hamburger {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+#hamburger span {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #1F2A44;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+#hamburger span:nth-child(1) {
+  top: 0;
+}
+
+#hamburger span:nth-child(2) {
+  top: 10px;
+}
+
+#hamburger span:nth-child(3) {
+  top: 20px;
+}
+
+#hamburger.active span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
 }
 
 main {
@@ -409,6 +455,7 @@ main {
 
 .section-body {
     padding: 10px 0 10px 0;
+    margin-inline: clamp(2rem, 4.5vw, 2.8125rem);
 }
 
 #hero-button {
@@ -438,7 +485,13 @@ main {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 514px;
+    width: 100%;
+    max-width: 514px;
+}
+
+.project-card a img {
+    width: 100%;
+    aspect-ratio: 514 / 274;
 }
 
 .project-text {
@@ -523,15 +576,111 @@ footer {
 footer h2 {
     color: #fff;
     font-weight: 700;
+    text-align: center;
 }
 
 footer h3 {
     color: #D3DDE6;
     font-weight: 500;
+    text-align: center;
+    overflow-wrap: break-word;
 }
 
 #footer-links {
     display: flex;
     gap: 20px;
     margin-top: 10px;
+}
+
+@media (max-width: 1050px) {
+    #contact-form {
+        flex-direction: column;
+        width: 95%;
+        gap: 10px;
+    }
+
+    #textfield-form, #textarea-form {
+        width: 100%;
+    }
+
+    #textarea-form .input-box textarea {
+        min-height: 110px;
+    }
+
+    #submit-container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    #submit-container .primary-button{
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #hero-button {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 1023px) {
+    #navigation {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        padding-top: 10vh;
+        padding-bottom: 40px;
+        background-color: #fff;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-100%);
+        transition: 
+            transform 0.6s ease-in-out,
+            opacity 0.6s ease-in-out,
+            visibility 0.6s ease-in-out;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #navigation.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #navigation nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0rem, 1vw, 3rem);
+    }
+
+    #navigation nav a {
+        margin: 15px 0;
+        font-size: 1.5em;
+    }
+
+    #navigation .language-toggle {
+        margin-top: 20px;
+    }
+
+    #navigation .primary-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+    }
+
+    #navigation-mobile {
+        display: flex; /* Tampilkan navigation-mobile di mobile */
+        align-items: center;
+    }
+
+    #hamburger {
+        display: flex;
+    }
 }
