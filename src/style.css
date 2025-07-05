@@ -303,15 +303,16 @@ textarea::placeholder {
   width: 233px;
   bottom: 3.25rem;
   left: 50%;
-  transform: translateX(-50%) translateY(122px);
+  transform: translateX(-50%) translateY(0px);
   background-color: #4CAF50; /* warna tombol default */
   color: white;
-  padding: 1.25rem 1.75rem;
+  padding: 1.25rem 0;
   border-radius: 10px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 999;
   border: none;
+  text-align: center;
 }
 
 .notification h3 {
