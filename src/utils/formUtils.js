@@ -23,11 +23,11 @@ export function generateContactForm(language = 'id') {
         textFieldContainer.innerHTML = `
             <div class="input-box">
                 <label for="user_name">${getTranslation(language, 'form.name.label')}</label>
-                <input type="text" id="user_name" name="user_name" placeholder="${getTranslation(language, 'form.name.placeholder')}" required>
+                <input type="text" id="user_name" name="name" placeholder="${getTranslation(language, 'form.name.placeholder')}" required>
             </div>
             <div class="input-box">
                 <label for="user_email">${getTranslation(language, 'form.email.label')}</label>
-                <input type="email" id="user_email" name="user_email" placeholder="${getTranslation(language, 'form.email.placeholder')}" required>
+                <input type="email" id="user_email" name="email" placeholder="${getTranslation(language, 'form.email.placeholder')}" required>
             </div>
         `;
     }
