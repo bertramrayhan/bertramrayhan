@@ -1,0 +1,1 @@
+<p>I'm an Informatics Engineering student focused on developing software such as desktop app and web applications. I aspire to become a software developer who creates high-quality technology to solve real-world problems.</p>

@@ -54,7 +54,7 @@
                 <a href="#projects">Projects</a>
             </nav>
             <div class="language-toggle">
-                <a href="/en/">EN</a> | <a href="/">ID</a>
+                <button class="en-btn">EN</button> | <button class="id-btn">ID</button>
             </div>
             
             <a href="#contact" class="primary-button">Contact</a>
@@ -77,7 +77,7 @@
             <div class="section-text">
                 <h1>Bertram Naqa Rayhan Indratno</h1>
                 <hr class="separator">
-                <div class="section-body">
+                <div class="hero__body section-body">
                     <p>Saya adalah mahasiswa Teknik Informatika yang berfokus pada pengembangan perangkat lunak seperti aplikasi desktop dan website. Saya memiliki ambisi untuk menjadi software developer yang mampu menciptakan teknologi berkualitas untuk memecahkan masalah nyata.</p>
                 </div>
             </div>
@@ -93,7 +93,7 @@
             <div class="section-text">
                 <h2>About</h2>
                 <hr class="separator">
-                <div class="section-body">
+                <div class="about__body section-body">
                     <p>Saya merupakan orang yang suka untuk memecahkan suatu permasalahan yang membutuhkan penalaran. Ketika pertama kali saya mencoba masuk ke dalam dunia pemrograman, saya merasa seperti menemukan sesuatu yang benar-benar cocok dengan cara berpikir saya. Tantangan yang ditemui ketika membuat sesuatu membuat saya ingin menggali lebih dalam. Sejak saat itu, saya mulai mengembangkan diri dalam bidang pengembangan perangkat lunak.</p>
                     <br>
                     <p>Memasuki dunia perkuliahan menjadi loncatan penting bagi saya untuk mengasah kemampuan lebih dalam. Saya mendalami <b>Java</b> dan <b>SQL</b> untuk mengembangkan berbagai aplikasi desktop. Kemudian, saya mencoba untuk mempelajari website dengan menggunakan <b>HTML</b> dan <b>CSS</b>.</p>
@@ -150,25 +150,25 @@
                 <div id="contact-form">
                     <div id="textfield-form">
                         <div class="input-box">
-                            <p>Nama</p>
-                            <input type="text" placeholder="Masukkan Nama" name="name" required>
+                            <label for="name" data-translate-label="form.name.label">Nama</label>
+                            <input type="text" placeholder="Masukkan Nama" name="name" id="name" data-translate-placeholder="form.name.placeholder" required>
                         </div>
                         <div class="input-box">
-                            <p>Email</p>
-                            <input type="email" placeholder="Masukkan Email" name="email" required>
+                            <label for="email" data-translate-label="form.email.label">Email</label>
+                            <input type="email" placeholder="Masukkan Email" name="email" id="email" data-translate-placeholder="form.email.placeholder" required>
                         </div>
                     </div>
 
                     <div id="textarea-form">
                         <div class="input-box">
-                            <p>Pesan</p>
-                            <textarea placeholder="Masukkan Pesan" name="message" required></textarea>
+                            <label for="message" data-translate-label="form.message.label">Pesan</label>
+                            <textarea placeholder="Masukkan Pesan" name="message" id="message" data-translate-placeholder="form.message.placeholder" required></textarea>
                         </div>
                     </div>
                 </div>
                 
                 <div id="submit-container">
-                    <button type="submit" class="primary-button">Submit</button>
+                    <button type="submit" class="submit-btn primary-button" data-translate-submit="form.submit">Kirim</button>
                 </div>
             </form>
         </div>
@@ -198,6 +198,40 @@
 
     <div id="notification" class="notification hidden"></div>
 
+    <template id="project-card-template">
+        <div class="project-card">
+            <a data-fancybox="gallery" href="${project.image}">
+                <img src="" alt="Photo Project " class="project-photo">
+            </a>
+            <div class="project-text">
+                <h3 class="project-name"></h3>
+                <hr class="separator-project">
+                <p style="text-align: justify;" class="project-description"></p>
+            </div>
+            <div class="tech-stack-list">
+            </div>
+            <div class="project-link">
+                <a href="" target="_blank" class="github-link icon-link">
+                    <svg width="35" height="35" viewBox="0 0 54 54" fill="none">
+                        <use href="#icon-github"></use>
+                    </svg>
+                </a>
+                <a href="" target="_blank" class="release-link icon-link">
+                    <svg width="35" height="35" viewBox="0 0 150 150" fill="none">
+                        <use href="#icon-link-live"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <template id="tech-stack-template">
+        <div class="tooltip">
+            <img src="" alt="" class="tech-stack-icon">
+            <span class="tooltip-text">Git</span>
+        </div>
+    </template>
+
     <script type="module" src="/src/main.js"></script>
 
     <!-- FancyBox Script -->
@@ -207,6 +241,5 @@
     <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+[
+    {
+        "name": "DumDumCell Cashier Application",
+        "imagePath": "/src/assets/images/halaman-beranda-pemilik.png",
+        "description": "DumDumCell Cashier Application helps DumDum Cellular business operations with advanced features like RFID login, barcode scanner, and automatic receipt printing. The system has two access levels (employee and owner), and supports stock monitoring, sales transactions, and automatic reporting with a user-friendly interface.",
+        "github": "https://github.com/bertramrayhan/dumdumcell",
+        "release": "https://github.com/bertramrayhan/dumdumcell/releases/tag/v1.0.0",
+        "techs": ["java", "css3"]
+    }
+]

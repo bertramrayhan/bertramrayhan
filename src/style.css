@@ -32,7 +32,7 @@ h3 {
     color: #1F2A44;
 }
 
-p {
+p, label {
     font-size: 1.25rem;
     color: #3D3D3D;
 }
@@ -151,17 +151,21 @@ header nav a:hover::after {
     color: #1F2A44;
 }
 
-.language-toggle a {
+.language-toggle button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
     text-decoration: none;
     color: #1F2A44;
     transition: color 300ms ease-in-out;
+    cursor: pointer;
 }
 
-.language-toggle a:hover {
+.language-toggle button:hover {
     color: #4F6D7A; /* Warna hover yang sama dengan navigasi */
 }
 
-.language-toggle a:active {
+.language-toggle button:active {
     color: #3A4E5A; /* Contoh: warna aksen */
 }
 

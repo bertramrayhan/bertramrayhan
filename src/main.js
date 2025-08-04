@@ -1,10 +1,27 @@
 import emailjs from "@emailjs/browser";
-import './style.css'; // kalau lo mau load CSS manual
-import { getProjects } from './data/projects.js';
 import { renderProjectCards } from './utils/projectUtils.js';
-import { getCurrentLanguage } from './utils/languageUtils.js';
-import { getTranslation } from './data/translations.js';
-import { generateContactForm } from './utils/formUtils.js';
+import { setContactForm } from './utils/formUtils.js';
+
+let currentLanguage = 'id';
+let lastLanguage = currentLanguage;
+let languageToggle = document.querySelector('.language-toggle');
+let heroBody = document.querySelector('.hero__body');
+let aboutBody = document.querySelector('.about__body');
+let notificationSuccess = null;
+let notificationError = null;
+
+languageToggle.addEventListener('click', function(e){
+  if(e.target.closest('.id-btn')){
+    currentLanguage = 'id';
+  }else if(e.target.closest('.en-btn')) {
+    currentLanguage = 'en';
+  }
+
+  if(currentLanguage !== lastLanguage){
+    lastLanguage = currentLanguage;
+    getContent();
+  }
+});
 
 // init pake public key dari .env
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -25,23 +42,21 @@ function showNotif(message, type = "success") {
   }, 3000);
 }
 
-document.getElementById("contact-form-wrapper").addEventListener("submit", function (e) {
+document.getElementById("contact-form-wrapper").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // Deteksi bahasa untuk pesan notifikasi
-  const currentLanguage = getCurrentLanguage();
-
-  emailjs.sendForm(
-    import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-    this
-  ).then(() => {
-    showNotif(getTranslation(currentLanguage, 'notifications.success'));
+  try {
+    await emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      this
+    );
+    showNotif(notificationSuccess);
     this.reset();
-  }, (error) => {
-    showNotif(getTranslation(currentLanguage, 'notifications.error'), "error");
+  } catch (error) {
+    showNotif(notificationError, "error");
     console.error(error);
-  });
+  }
 });
 
 //membuat hamburger menu
@@ -77,21 +92,9 @@ function openHamburgerMenu() {
 }
 
 // Tunggu DOM siap untuk generate project cards
-document.addEventListener('DOMContentLoaded', function() {
-    // Deteksi bahasa berdasarkan URL
-    const currentLanguage = getCurrentLanguage();
-    
-    // Generate contact form sesuai bahasa
-    generateContactForm(currentLanguage);
-    
-    // Get projects data sesuai bahasa
-    const projects = getProjects(currentLanguage);
-    
-    // Selector yang benar - pakai ID
-    const projectGrid = document.querySelector('#project-grid');
-    
-    // Render semua project cards dengan bahasa
-    renderProjectCards(projects, projectGrid, currentLanguage);
+document.addEventListener('DOMContentLoaded', function() {    
+    getContent();
+
     //membuka hamburger menu
     openHamburgerMenu();
 
@@ -107,3 +110,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+async function getContent(){
+  try {
+    const heroPath = `/src/content/hero/hero_${currentLanguage}.md`; 
+    const aboutPath = `/src/content/about/about_${currentLanguage}.md`; 
+    const projectsPath = `/src/content/projects/projects_${currentLanguage}.json`; 
+    const translationsPath = `/src/content/translations/translations_${currentLanguage}.json`; 
+
+    const [heroResponse, aboutResponse, projectsResponse, translationsResponse] = await Promise.all([
+      fetch(heroPath),
+      fetch(aboutPath),
+      fetch(projectsPath),
+      fetch(translationsPath)
+    ])
+
+    if(!heroResponse.ok || !aboutResponse.ok || !projectsResponse.ok || !translationsResponse.ok){
+      throw new Error('Gagal memuat content.');
+    }
+
+    const heroContent = await heroResponse.text();
+    const aboutContent = await aboutResponse.text();
+    const projectsContent = await projectsResponse.json();
+    const translationsContent = await translationsResponse.json();
+    const content = {
+      heroContent: heroContent,
+      aboutContent: aboutContent,
+      projectsContent: projectsContent,
+      translationsContent: translationsContent
+    }
+    
+    loadContent(content);
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function loadContent(content){
+  heroBody.innerHTML = content.heroContent;
+
+  aboutBody.innerHTML = content.aboutContent;
+
+  renderProjectCards(content.projectsContent);
+
+  notificationSuccess = content.translationsContent.notifications.success;
+  notificationError = content.translationsContent.notifications.error;
+
+  setContactForm(content.translationsContent)
+}

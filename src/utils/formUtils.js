@@ -1,53 +1,36 @@
-/**
- * Utility functions untuk contact form multi-language
- */
-
-import { getTranslation } from '../data/translations.js';
-
-/**
- * Generate contact form fields berdasarkan bahasa
- * @param {string} language - Language code
- */
-export function generateContactForm(language = 'id') {
-    const textFieldContainer = document.getElementById('textfield-form');
-    const textAreaContainer = document.getElementById('textarea-form');
-    const submitContainer = document.getElementById('submit-container');
-
-    // Clear existing content
-    if (textFieldContainer) textFieldContainer.innerHTML = '';
-    if (textAreaContainer) textAreaContainer.innerHTML = '';
-    if (submitContainer) submitContainer.innerHTML = '';
-
-    // Generate name and email fields
-    if (textFieldContainer) {
-        textFieldContainer.innerHTML = `
-            <div class="input-box">
-                <label for="user_name">${getTranslation(language, 'form.name.label')}</label>
-                <input type="text" id="user_name" name="name" placeholder="${getTranslation(language, 'form.name.placeholder')}" required>
-            </div>
-            <div class="input-box">
-                <label for="user_email">${getTranslation(language, 'form.email.label')}</label>
-                <input type="email" id="user_email" name="email" placeholder="${getTranslation(language, 'form.email.placeholder')}" required>
-            </div>
-        `;
+export function setContactForm(translationsForm) {
+    if (!translationsForm) {
+        console.error("Data terjemahan untuk form tidak tersedia.");
+        return;
     }
 
-    // Generate message field
-    if (textAreaContainer) {
-        textAreaContainer.innerHTML = `
-            <div class="input-box">
-                <label for="message">${getTranslation(language, 'form.message.label')}</label>
-                <textarea id="message" name="message" placeholder="${getTranslation(language, 'form.message.placeholder')}" required></textarea>
-            </div>
-        `;
-    }
+    // Helper function di dalam setContactForm untuk mendapatkan nilai
+    const getNestedValue = (key) => {
+        return key.split('.').reduce((obj, k) => obj?.[k], translationsForm);
+    };
 
-    // Generate submit button
-    if (submitContainer) {
-        submitContainer.innerHTML = `
-            <button type="submit" class="primary-button">
-                ${getTranslation(language, 'form.submit')}
-            </button>
-        `;
+    // Terjemahkan semua elemen di dalam form yang memiliki atribut data-translate
+    const formWrapper = document.getElementById('contact-form-wrapper');
+
+    // Terjemahkan label
+    formWrapper.querySelectorAll('[data-translate-label]').forEach(el => {
+        const key = el.dataset.translateLabel;
+        const text = getNestedValue(key);
+        if (text) el.textContent = text;
+    });
+
+    // Terjemahkan placeholder
+    formWrapper.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+        const key = el.dataset.translatePlaceholder;
+        const text = getNestedValue(key);
+        if (text) el.placeholder = text;
+    });
+
+    // Terjemahkan tombol submit
+    const submitBtn = formWrapper.querySelector('[data-translate-submit]');
+    if (submitBtn) {
+        const key = submitBtn.dataset.translateSubmit;
+        const text = getNestedValue(key);
+        if (text) submitBtn.textContent = text;
     }
 }

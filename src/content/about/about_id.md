@@ -1,0 +1,5 @@
+<p>Saya merupakan orang yang suka untuk memecahkan suatu permasalahan yang membutuhkan penalaran. Ketika pertama kali saya mencoba masuk ke dalam dunia pemrograman, saya merasa seperti menemukan sesuatu yang benar-benar cocok dengan cara berpikir saya. Tantangan yang ditemui ketika membuat sesuatu membuat saya ingin menggali lebih dalam. Sejak saat itu, saya mulai mengembangkan diri dalam bidang pengembangan perangkat lunak.</p>
+<br>
+<p>Memasuki dunia perkuliahan menjadi loncatan penting bagi saya untuk mengasah kemampuan lebih dalam. Saya mendalami <b>Java</b> dan <b>SQL</b> untuk mengembangkan berbagai aplikasi desktop. Kemudian, saya mencoba untuk mempelajari website dengan menggunakan <b>HTML</b> dan <b>CSS</b>.</p>
+<br>
+<p>Saya memiliki ambisi untuk terus berkembang dan mengeksplorasi berbagai area software development ke depannya, seperti <b>aplikasi Android</b>, <b>Internet of Things (IoT)</b>, dan <b>Artificial Intelligence (AI)</b>. Tujuan saya adalah berkontribusi dalam menciptakan teknologi berkualitas yang dapat memecahkan masalah nyata dan memberikan dampak positif.</p>
