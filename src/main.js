@@ -113,10 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function getContent(){
   try {
-    const heroPath = `/src/content/hero/hero_${currentLanguage}.md`; 
-    const aboutPath = `/src/content/about/about_${currentLanguage}.md`; 
-    const projectsPath = `/src/content/projects/projects_${currentLanguage}.json`; 
-    const translationsPath = `/src/content/translations/translations_${currentLanguage}.json`; 
+    const heroPath = `/content/hero/hero_${currentLanguage}.md`; 
+    const aboutPath = `/content/about/about_${currentLanguage}.md`; 
+    const projectsPath = `/content/projects/projects_${currentLanguage}.json`; 
+    const translationsPath = `/content/translations/translations_${currentLanguage}.json`;
 
     const [heroResponse, aboutResponse, projectsResponse, translationsResponse] = await Promise.all([
       fetch(heroPath),
