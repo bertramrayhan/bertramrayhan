@@ -17,7 +17,7 @@ export function renderProjectCards(projects) {
         const projectCardClone = projectCardTemplate.content.cloneNode(true);
 
         // Langkah 2: Bangun path lengkap ke modul gambar yang dicari.
-        const imagePathKey = `/src/assets/images/${project.imagePath}`;
+        const imagePathKey = `/src/assets/images/${project.imagepath}`;
 
         // Langkah 3: Dapatkan URL gambar yang sudah diproses Vite dari peta 'projectImageModules'.
         // Properti '.default' berisi URL publik dari gambar tersebut.

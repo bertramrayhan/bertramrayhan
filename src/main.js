@@ -113,46 +113,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function getContent(){
   try {
-    const heroPath = `/content/hero/hero_${currentLanguage}.md`; 
-    const aboutPath = `/content/about/about_${currentLanguage}.md`; 
-    const projectsPath = `/content/projects/projects_${currentLanguage}.json`; 
+    const responsePath = `/api/get_contents.php?lang=${currentLanguage}`;
     const translationsPath = `/content/translations/translations_${currentLanguage}.json`;
 
-    const [heroResponse, aboutResponse, projectsResponse, translationsResponse] = await Promise.all([
-      fetch(heroPath),
-      fetch(aboutPath),
-      fetch(projectsPath),
+    const [response, translationsResponse] = await Promise.all([
+      fetch(responsePath),
       fetch(translationsPath)
     ])
 
-    if(!heroResponse.ok || !aboutResponse.ok || !projectsResponse.ok || !translationsResponse.ok){
-      throw new Error('Gagal memuat content.');
+    if(!response.ok || !translationsResponse.ok){
+      throw new Error(`HTTP error! status ${response.status}`);    
     }
 
-    const heroContent = await heroResponse.text();
-    const aboutContent = await aboutResponse.text();
-    const projectsContent = await projectsResponse.json();
+    const results = await response.json();
     const translationsContent = await translationsResponse.json();
-    const content = {
-      heroContent: heroContent,
-      aboutContent: aboutContent,
-      projectsContent: projectsContent,
+    let content = {
+      heroContent: results.contents.hero,
+      aboutContent: results.contents.about,
+      projectsContent: results.projects,
       translationsContent: translationsContent
     }
-    
+
     loadContent(content);
-
-    // PERCOBAAN
-    const response = await fetch(`/api/get_contents.php?lang=${currentLanguage}`);
-
-    if(!response.ok){
-      throw new Error(`HTTP error! status ${response.status}`);
-    }
-
-    const result = await response.json();
-    if(result.success){
-      console.log(result.message);
-    }
 
   } catch (error) {
     console.error(error);
