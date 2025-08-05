@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently --kill-others \"nodemon --exec 'php -S localhost:8080 -t .' --watch api --ext php --delay 1\" \"vite\"",
+    "dev:vite": "vite",
+    "dev:php": "php -S localhost:8080 -t .",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.10",
     "vite": "^7.0.0"
   },
   "dependencies": {

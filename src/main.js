@@ -142,6 +142,18 @@ async function getContent(){
     
     loadContent(content);
 
+    // PERCOBAAN
+    const response = await fetch(`/api/get_contents.php?lang=${currentLanguage}`);
+
+    if(!response.ok){
+      throw new Error(`HTTP error! status ${response.status}`);
+    }
+
+    const result = await response.json();
+    if(result.success){
+      console.log(result.message);
+    }
+
   } catch (error) {
     console.error(error);
   }
