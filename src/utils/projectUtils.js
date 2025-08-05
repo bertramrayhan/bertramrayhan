@@ -24,12 +24,14 @@ export function renderProjectCards(projects) {
         const imageUrl = projectImageModules[imagePathKey]?.default;
 
         let projectPhoto = projectCardClone.querySelector('.project-photo');
+        let fancyBox = projectCardClone.querySelector('a[data-fancybox]');
         
         if (imageUrl) {
             projectPhoto.src = imageUrl;
+            fancyBox.href = imageUrl;
         } else {
-            // Fallback jika gambar tidak ditemukan, agar tidak error.
-            projectPhoto.src = ''; // atau path ke gambar placeholder
+            projectPhoto.src = '';
+            fancyBox.href = '';
             console.warn(`Gambar tidak ditemukan untuk proyek: ${project.name}. Path yang dicari: ${imagePathKey}`);
         }
         
