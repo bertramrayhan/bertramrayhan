@@ -47,7 +47,7 @@ Cashier system with offline support and RFID attendance
 ### 🌐 Portfolio Website 
 A personal site to showcase skills and projects   
 📂 [View Repository](https://github.com/bertramrayhan/bertramrayhan)  
-🔗 [Visit Website](bertramrayhan.vercel.app)  
+🔗 [Visit Website](https://bertramrayhan.vercel.app)  
 📸 Screenshot:  
 <img src="https://raw.githubusercontent.com/bertramrayhan/bertramrayhan/main/src/assets/images/demo-portfolio-en.png" width="500"/>
 
