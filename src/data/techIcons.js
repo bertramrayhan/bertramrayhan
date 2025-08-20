@@ -8,31 +8,35 @@ import html5Icon from '../assets/icons/html5-original.svg';
 import gitIcon from '../assets/icons/git-original.svg';
 import mysqlIcon from '../assets/icons/mysql-original-wordmark.svg';
 import pythonIcon from '../assets/icons/python-original.svg';
-
+import phpIcon from '../assets/icons/php-original.svg';
 
 export const techIcons = {
     java: {
-        src: javaIcon, // Gunakan variabel yang diimport
+        src: javaIcon,
         name: "Java"
     },
     css3: {
-        src: css3Icon, // Gunakan variabel yang diimport
+        src: css3Icon,
         name: "CSS3"
     },
     html5: {
-        src: html5Icon, // Gunakan variabel yang diimport
+        src: html5Icon,
         name: "HTML5"
     },
     git: {
-        src: gitIcon, // Gunakan variabel yang diimport
+        src: gitIcon,
         name: "Git"
     },
     mysql: {
-        src: mysqlIcon, // Gunakan variabel yang diimport
+        src: mysqlIcon,
         name: "MySQL"
     },
     python: {
-        src: pythonIcon, // Gunakan variabel yang diimport
+        src: pythonIcon,
         name: "Python"
+    },
+    php: {
+        src: phpIcon,
+        name: "PHP"
     }
 };
