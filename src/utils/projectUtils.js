@@ -16,12 +16,15 @@ export function renderProjectCards(projects) {
     for (const project of projects) {
         const projectCardClone = projectCardTemplate.content.cloneNode(true);
 
-        // Langkah 2: Bangun path lengkap ke modul gambar yang dicari.
-        const imagePathKey = `/src/assets/images/${project.imagepath}`;
+        let imageUrl;
 
-        // Langkah 3: Dapatkan URL gambar yang sudah diproses Vite dari peta 'projectImageModules'.
-        // Properti '.default' berisi URL publik dari gambar tersebut.
-        const imageUrl = projectImageModules[imagePathKey]?.default;
+        if (project.imagepath.startsWith('http')) {
+
+            imageUrl = project.imagepath;
+        } else {
+            const imagePathKey = `/src/assets/images/${project.imagepath}`;
+            imageUrl = projectImageModules[imagePathKey]?.default;
+        }
 
         let projectPhoto = projectCardClone.querySelector('.project-photo');
         let fancyBox = projectCardClone.querySelector('a[data-fancybox]');
