@@ -9,6 +9,7 @@ import gitIcon from '../assets/icons/git-original.svg';
 import mysqlIcon from '../assets/icons/mysql-original-wordmark.svg';
 import pythonIcon from '../assets/icons/python-original.svg';
 import phpIcon from '../assets/icons/php-original.svg';
+import javascriptIcon from '../assets/icons/javascript-original.svg';
 
 export const techIcons = {
     java: {
@@ -38,5 +39,9 @@ export const techIcons = {
     php: {
         src: phpIcon,
         name: "PHP"
+    },
+    javascript: {
+        src: javascriptIcon,
+        name: "Javascript"
     }
 };

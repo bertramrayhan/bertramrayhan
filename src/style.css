@@ -471,11 +471,11 @@ main {
 }
 
 .tech-stack-list {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
     gap: 30px 50px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #project-grid {
