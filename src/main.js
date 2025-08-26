@@ -4,23 +4,25 @@ import { setContactForm } from './utils/formUtils.js';
 
 let currentLanguage = 'id';
 let lastLanguage = currentLanguage;
-let languageToggle = document.querySelector('.language-toggle');
+let languageToggles = document.querySelectorAll('.language-toggle');
 let heroBody = document.querySelector('.hero__body');
 let aboutBody = document.querySelector('.about__body');
 let notificationSuccess = null;
 let notificationError = null;
 
-languageToggle.addEventListener('click', function(e){
-  if(e.target.closest('.id-btn')){
-    currentLanguage = 'id';
-  }else if(e.target.closest('.en-btn')) {
-    currentLanguage = 'en';
-  }
+languageToggles.forEach(languageToggle => {
+  languageToggle.addEventListener('click', function(e){
+    if(e.target.closest('.id-btn')){
+      currentLanguage = 'id';
+    }else if(e.target.closest('.en-btn')) {
+      currentLanguage = 'en';
+    }
 
-  if(currentLanguage !== lastLanguage){
-    lastLanguage = currentLanguage;
-    getContent();
-  }
+    if(currentLanguage !== lastLanguage){
+      lastLanguage = currentLanguage;
+      getContent();
+    }
+  });
 });
 
 // init pake public key dari .env
