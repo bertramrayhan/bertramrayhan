@@ -6,7 +6,7 @@
 ## 💫 About Me
 
 - 🔭 I’m currently working on:  
-  Building my personal portfolio website 🌐 — [Check it out here](https://github.com/bertramrayhan/bertramrayhan)
+  Building my personal project — [Check it out here](https://github.com/bertramrayhan/Cognito-Deck)
 
 - 🌱 I’m currently learning:  
   Web development and diving into basic system security 🔐
@@ -54,8 +54,8 @@ A personal site to showcase skills and projects
 <br/>
 
 ## 🌐 Socials
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bertramrayhan)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bertramrayhan.dev)
 &nbsp;
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bertram-indratno-b72469260/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bertram-indratno/)
 &nbsp;
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?style=flat&logo=discord&logoColor=white)](https://discord.com/users/722326769155309638)
