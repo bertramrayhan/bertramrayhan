@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #64FFDA;
+  --color-background-dark: #0A192F;
+  --color-surface-dark: #112240;
+  --color-text-light: #E6F1FF;
+  --color-text-secondary: #8892B0;
+
+  --font-family-display: "Manrope", "sans-serif";
+  --font-family-serif: "Playfair Display", "serif";
+
+  --border-radius-DEFAULT: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+  --border-radius-full: 9999px;
+}
