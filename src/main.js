@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { renderProjectCards } from './utils/projectUtils.js';
 import { setContactForm } from './utils/formUtils.js';
+import { client } from './sanityClient.js';
 
 // let currentLanguage = 'id';
 // let lastLanguage = currentLanguage;
@@ -60,38 +61,6 @@ import { setContactForm } from './utils/formUtils.js';
 //     console.error(error);
 //   }
 // });
-
-// //membuat hamburger menu
-// function openHamburgerMenu() {
-//     const hamburger = document.querySelector('#hamburger');
-//     const navigation = document.querySelector('#navigation');
-//     const header = document.querySelector('header');
-//     const navLinks = document.querySelectorAll('#navigation nav a'); // Ambil semua link navigation
-//     const btnNavLinks = document.querySelectorAll('#navigation a.primary-button');
-
-//     hamburger.addEventListener('click', () => {
-//         hamburger.classList.toggle('active');      // bikin garis jadi silang
-//         navigation.classList.toggle('active');
-//         header.classList.toggle('menu-open');
-//     });
-
-//     // Tutup menu ketika link navigation diklik
-//     navLinks.forEach(link => {
-//         link.addEventListener('click', () => {
-//             hamburger.classList.remove('active');
-//             navigation.classList.remove('active');
-//             header.classList.remove('menu-open');
-//         });
-//     });
-
-//     btnNavLinks.forEach(link => {
-//         link.addEventListener('click', () => {
-//             hamburger.classList.remove('active');
-//             navigation.classList.remove('active');
-//             header.classList.remove('menu-open');
-//         });
-//     });
-// }
 
 function initScrollObserver() {
     const sections = document.querySelectorAll('section[id]');
@@ -172,11 +141,58 @@ function initMobileMenu() {
     });
 }
 
-// Tunggu DOM siap untuk generate project cards
-document.addEventListener('DOMContentLoaded', function() {    
-    // getContent();
+async function getProjects(language = 'id') {
+    // Ini adalah query Sanity, disebut GROQ. Mirip SQL.
+    const query = `*[_type == "project" && language == $lang]`;
+    const params = { lang: language };
 
-    // openHamburgerMenu();
+    const projects = await client.fetch(query, params);
+    return projects;
+}
+
+async function getContent(){
+    try {
+        const [projectsData] = await Promise.all([
+        getProjects('id'),
+        ])
+
+        if(!projectsData.ok){
+        throw new Error(`HTTP error! status ${projectsData.status}`);    
+        }
+
+        const results = await projectsData.json();
+        console.log(results);
+        let content = {
+        //   heroContent: results.contents.hero,
+        //   aboutContent: results.contents.about,
+        projectsContent: results.projects,
+        //   translationsContent: translationsContent
+        }
+
+        loadContent(content);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function loadContent(content){
+//   heroBody.innerHTML = content.heroContent;
+
+//   aboutBody.innerHTML = content.aboutContent;
+
+    renderProjectCards(content.projectsContent);
+
+//   notificationSuccess = content.translationsContent.notifications.success;
+//   notificationError = content.translationsContent.notifications.error;
+
+//   setContactForm(content.translationsContent)
+}
+
+document.addEventListener('DOMContentLoaded', async () => {    
+    getContent();
+    const projectsData = await getProjects('id'); // Ambil proyek Bhs. Indonesia
+    console.log('Data Proyek dari Sanity:', projectsData);
 
     initScrollObserver();
     initMobileMenu();
@@ -193,46 +209,3 @@ document.addEventListener('DOMContentLoaded', function() {
     //     });
     // }
 });
-
-// async function getContent(){
-//   try {
-//     const responsePath = `/api/get_contents.php?lang=${currentLanguage}`;
-//     const translationsPath = `/content/translations/translations_${currentLanguage}.json`;
-
-//     const [response, translationsResponse] = await Promise.all([
-//       fetch(responsePath),
-//       fetch(translationsPath)
-//     ])
-
-//     if(!response.ok || !translationsResponse.ok){
-//       throw new Error(`HTTP error! status ${response.status}`);    
-//     }
-
-//     const results = await response.json();
-//     const translationsContent = await translationsResponse.json();
-//     let content = {
-//       heroContent: results.contents.hero,
-//       aboutContent: results.contents.about,
-//       projectsContent: results.projects,
-//       translationsContent: translationsContent
-//     }
-
-//     loadContent(content);
-
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// function loadContent(content){
-//   heroBody.innerHTML = content.heroContent;
-
-//   aboutBody.innerHTML = content.aboutContent;
-
-//   renderProjectCards(content.projectsContent);
-
-//   notificationSuccess = content.translationsContent.notifications.success;
-//   notificationError = content.translationsContent.notifications.error;
-
-//   setContactForm(content.translationsContent)
-// }
