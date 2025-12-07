@@ -36,7 +36,7 @@ export function renderProjectCards(projects) {
             const img = document.createElement('img');
             img.src = imageUrl;
             img.alt = project.name;
-            img.className = 'w-full h-full object-cover cursor-pointer';
+            img.className = 'w-full h-full object-fill cursor-pointer';
             img.loading = 'lazy';
 
             fancyboxLink.appendChild(img);
