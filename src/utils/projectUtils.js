@@ -17,7 +17,7 @@ export function renderProjectCards(projects) {
         const cardElement = cardClone.querySelector('.group\\/card'); // Ambil elemen kartu utama
 
         // 2. Temukan elemen di dalam kloningan dan isi dengan data
-        const imageContainer = cardElement.querySelector('.aspect-video');
+        const imageContainer = cardElement.querySelector('#image-container');
         const titleElement = cardElement.querySelector('h3');
         const descriptionElement = cardElement.querySelector('p');
         const techsContainer = cardElement.querySelector('.flex-wrap');
