@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@fancyapps/ui": "^6.1.6",
+    "@portabletext/to-html": "^4.0.1",
     "@sanity/client": "^7.13.1",
+    "@sanity/image-url": "^2.0.1",
     "@tailwindcss/vite": "^4.1.17"
   }
 }

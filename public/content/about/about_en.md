@@ -1,5 +1,0 @@
-<p>I'm a person who likes to solve problems that require reasoning. When I first explored the world of programming, it felt like I had found something that perfectly matched my way of thinking. The challenges I encountered while building things made me even more curious to dive deeper. Since then, I've been continuously developing myself in the field of software development.</p>
-<br>
-<p>University was a great opportunity for me to sharpen my skills and explore programming more further. I explored <b>Java</b> and <b>SQL</b> to develop various desktop applications. Later, I started learning web development using <b>HTML</b> and <b>CSS</b>.</p>
-<br>
-<p>I'm eager to keep growing and exploring different areas of software development, such as <b>Android applications</b>, <b>Internet of Things (IoT)</b>, and <b>Artificial Intelligence (AI)</b>. My goal is to contribute to building high-quality technologies that solve real-world problems and create a positive impact.</p>

@@ -1,75 +1,84 @@
 import emailjs from "@emailjs/browser";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { renderProjectCards } from './utils/projectUtils.js';
-import { setContactForm } from './utils/formUtils.js';
+import { renderTimeline } from './utils/timelineUtils.js';
+import { populateHero, populateAbout, populateContact, populateSocials } from "./utils/PageContentUtils.js";
 import { client } from './sanityClient.js';
 
-// let currentLanguage = 'id';
-// let lastLanguage = currentLanguage;
-// let languageToggles = document.querySelectorAll('.language-toggle');
-// let heroBody = document.querySelector('.hero__body');
-// let aboutBody = document.querySelector('.about__body');
-// let notificationSuccess = null;
-// let notificationError = null;
+let currentLanguage = localStorage.getItem('preferredLanguage') || 'id';
+const langButtons = document.querySelectorAll('.lang-toggle-btn');
+let notificationTimer;
+window.notification = {};
 
-// languageToggles.forEach(languageToggle => {
-//   languageToggle.addEventListener('click', function(e){
-//     if(e.target.closest('.id-btn')){
-//       currentLanguage = 'id';
-//     }else if(e.target.closest('.en-btn')) {
-//       currentLanguage = 'en';
-//     }
+function changeLanguage() {
+    const targetLanguage = currentLanguage === 'id' ? 'en' : 'id';
+    
+    currentLanguage = targetLanguage;
+    localStorage.setItem('preferredLanguage', targetLanguage);
+    
+    getContent(currentLanguage);
+}
 
-//     if(currentLanguage !== lastLanguage){
-//       lastLanguage = currentLanguage;
-//       getContent();
-//     }
-//   });
-// });
+function updateLanguageButtons() {
+    const buttonText = currentLanguage === 'id' ? 'EN' : 'ID';
+    
+    langButtons.forEach(btn => {
+        btn.textContent = buttonText;
+    });
+}
 
-// // init pake public key dari .env
-// emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+function initLanguageButtons() {
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', changeLanguage);
+    });
+}
 
-// // kirim form saat submit
-// function showNotif(message, type = "success") {
-//   const notif = document.getElementById("notification");
-//   notif.innerHTML = `<h3>${message}</h3>`;
-//   notif.className = `notification ${type} show`;
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('notification');
+    const iconContainer = document.getElementById('notification-icon');
+    const messageContainer = document.getElementById('notification-message');
+    const progress = document.getElementById('notification-progress');
 
-//   setTimeout(() => {
-//     notif.classList.remove("show");
-//     notif.classList.add("hide");
+    if (!notification || !iconContainer || !messageContainer || !progress) return;
 
-//     setTimeout(() => {
-//       notif.className = `notification ${type}`;
-//     }, 400);
-//   }, 3000);
-// }
+    // Hapus timer yang mungkin sedang berjalan
+    clearTimeout(notificationTimer);
 
-// document.getElementById("contact-form-wrapper").addEventListener("submit", async function (e) {
-//   e.preventDefault();
+    // 1. Buat elemen <span> untuk Material Icon
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'material-symbols-outlined';
+    iconSpan.textContent = (type === 'success') ? 'check_circle' : 'error'; // Nama ikon
 
-//   try {
-//     await emailjs.sendForm(
-//       import.meta.env.VITE_EMAILJS_SERVICE_ID,
-//       import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-//       this
-//     );
-//     showNotif(notificationSuccess);
-//     this.reset();
-//   } catch (error) {
-//     showNotif(notificationError, "error");
-//     console.error(error);
-//   }
-// });
+    // 2. Masukkan ikon ke dalam container
+    iconContainer.innerHTML = ''; // Kosongkan dulu
+    iconContainer.appendChild(iconSpan);
+    // =================================================================
+
+    // Atur pesan dan gaya notifikasi
+    messageContainer.textContent = message;
+    notification.className = 'fixed top-5 right-5 z-[100] w-auto max-w-sm rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform';
+    notification.classList.add(type);
+
+    // Reset dan mulai animasi bilah progres
+    notification.classList.remove('show');
+    void notification.offsetWidth;
+    notification.classList.add('show');
+
+    // Atur timer untuk menyembunyikan notifikasi
+    notificationTimer = setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
 
 function initScrollObserver() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a');
 
     const observerOptions = {
-        root: null, // relatif terhadap viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.4 // Memicu saat 30% dari section terlihat
+        threshold: 0.4
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -141,71 +150,124 @@ function initMobileMenu() {
     });
 }
 
+async function getPageContent(language = 'id') {
+  const query = `*[_type == "pageContent" && language == $lang][0]`;
+  const params = { lang: language };
+
+  const content = await client.fetch(query, params);
+  return content;
+}
+
 async function getProjects(language = 'id') {
-    // Ini adalah query Sanity, disebut GROQ. Mirip SQL.
-    const query = `*[_type == "project" && language == $lang]`;
+    const query = `*[_type == "project" && language == $lang] 
+        | order(isFeatured asc, name asc)
+    `;
     const params = { lang: language };
 
     const projects = await client.fetch(query, params);
     return projects;
 }
 
-async function getContent(){
+async function getTimelineEvents(language = 'id') {
+  const query = `*[_type == "timelineEvent" && language == $lang] | order(eventDate asc)`;
+  const params = { lang: language };
+
+  const events = await client.fetch(query, params);
+  return events;
+}
+
+async function getContent(language) {
     try {
-        const [projectsData] = await Promise.all([
-        getProjects('id'),
-        ])
+        const [projectsData, timelineData, pageData] = await Promise.all([
+            getProjects(language),
+            getTimelineEvents(language),
+            getPageContent(language)
+        ]);
 
-        if(!projectsData.ok){
-        throw new Error(`HTTP error! status ${projectsData.status}`);    
+        if (!projectsData || !timelineData || !pageData) {
+            throw new Error("Gagal mengambil sebagian atau seluruh data dari Sanity.");
         }
 
-        const results = await projectsData.json();
-        console.log(results);
         let content = {
-        //   heroContent: results.contents.hero,
-        //   aboutContent: results.contents.about,
-        projectsContent: results.projects,
-        //   translationsContent: translationsContent
-        }
+            projectsContent: projectsData,
+            timelineContent: timelineData,
+            pageContent: pageData,
+        };
 
         loadContent(content);
+        updateLanguageButtons();
 
     } catch (error) {
-        console.error(error);
+        console.error("Error di dalam getContent:", error);
     }
 }
 
 function loadContent(content){
-//   heroBody.innerHTML = content.heroContent;
-
-//   aboutBody.innerHTML = content.aboutContent;
-
     renderProjectCards(content.projectsContent);
+    renderTimeline(content.timelineContent);
 
-//   notificationSuccess = content.translationsContent.notifications.success;
-//   notificationError = content.translationsContent.notifications.error;
+    populateHero(content.pageContent);
+    populateAbout(content.pageContent);
+    populateContact(content.pageContent);
+    populateSocials(content.pageContent);
 
-//   setContactForm(content.translationsContent)
+    window.notification.success = content.pageContent.notification_success;
+    window.notification.error = content.pageContent.notification_error;
+
+    initScrollObserver();
+
+    Fancybox.destroy(); 
+    
+    Fancybox.bind("[data-fancybox='gallery-projects']", {
+        infinite: false,
+        hideScrollbar: false,
+        Thumbs: { showOnStart: false },
+    });
+
 }
 
 document.addEventListener('DOMContentLoaded', async () => {    
-    getContent();
-    const projectsData = await getProjects('id'); // Ambil proyek Bhs. Indonesia
-    console.log('Data Proyek dari Sanity:', projectsData);
-
-    initScrollObserver();
+    getContent(currentLanguage);
+    initLanguageButtons();
     initMobileMenu();
 
-    // Inisialisasi FancyBox setelah DOM selesai dibuat
-    // if (window.Fancybox) {
-    //     Fancybox.bind("[data-fancybox]", {
-    //         // Options FancyBox
-    //         infinite: false,
-    //         hideScrollbar: false,
-    //         Thumbs: {
-    //             showOnStart: false
-    //         }
-    //     });
-    // }
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+        emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = `
+                <svg class="animate-spin h-5 w-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            `;
+
+            try {
+                await emailjs.sendForm(
+                    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                    contactForm
+                 );
+
+                const successMessage = window.notification.success || 'Pesan berhasil terkirim!';
+                showNotification(successMessage, 'success');
+                
+                contactForm.reset();
+
+            } catch (error) {
+                console.error('Gagal mengirim email:', error);
+                const errorMessage = window.notification.error || 'Gagal mengirim pesan. Coba lagi.';
+                showNotification(errorMessage, 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+            }
+        });
+    }
 });

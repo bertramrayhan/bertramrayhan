@@ -1,1 +1,0 @@
-<p>Saya adalah mahasiswa Teknik Informatika yang berfokus pada pengembangan perangkat lunak seperti aplikasi desktop dan website. Saya memiliki ambisi untuk menjadi software developer yang mampu menciptakan teknologi berkualitas untuk memecahkan masalah nyata.</p>

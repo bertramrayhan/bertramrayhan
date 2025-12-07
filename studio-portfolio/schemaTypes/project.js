@@ -29,6 +29,13 @@ export default {
       validation: rule => rule.required()
     },
     {
+      name: 'isFeatured',
+      title: 'Featured Project?',
+      type: 'boolean',
+      description: 'Aktifkan jika ini adalah proyek unggulan yang ingin ditonjolkan.',
+      initialValue: false, // Defaultnya tidak unggulan
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'text', // 'text' untuk paragraf panjang, 'string' untuk satu baris

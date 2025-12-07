@@ -6,11 +6,20 @@
     <title>Bertramrayhan</title>
     
     <link rel="stylesheet" href="/src/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-
 </head>
+
 <body class="font-display bg-background-dark text-text-light">
+
+    <div id="notification" class="fixed top-5 right-5 z-[100] w-auto max-w-sm rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform translate-x-[120%] opacity-0">
+        <div class="flex items-center p-4">
+            <!-- Ikon akan diisi oleh JS -->
+            <div id="notification-icon" class="mr-3"></div>
+            <!-- Pesan akan diisi oleh JS -->
+            <div id="notification-message" class="text-sm font-bold"></div>
+        </div>
+        <!-- Bilah Progres -->
+        <div id="notification-progress" class="h-1 bg-black/20"></div>
+    </div>
 
 <div class="relative flex min-h-screen w-full flex-col">
 
@@ -27,13 +36,18 @@
                     <a class="text-sm font-medium text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1" href="#projects">Projects</a>
                     <a class="text-sm font-medium text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1" href="#contact">Contact</a>
                 </nav>
-                <button class="hidden md:block border border-primary text-primary text-sm font-mono px-3 py-1 rounded hover:bg-primary/10 transition-colors hover:brightness-90 cursor-pointer">
+                <button class="lang-toggle-btn hidden md:block border border-primary text-primary text-sm font-mono px-3 py-1 rounded hover:bg-primary/10 transition-colors hover:brightness-90 cursor-pointer">
                     EN
                 </button>
             </div>
 
             <!-- Tombol Hamburger (Hanya di mobile) -->
-            <div class="md:hidden">
+            <div class="md:hidden flex items-center gap-2">
+                <button class="lang-toggle-btn border border-primary text-primary text-sm font-mono px-3 py-1 rounded hover:bg-primary/10 transition-colors hover:brightness-90 cursor-pointer">
+                    EN
+                </button>
+                
+                <!-- Tombol Hamburger -->
                 <button id="hamburger-button" class="p-2 text-text-light" aria-label="Open menu">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
@@ -63,36 +77,31 @@
                     
                     <!-- Elemen-elemen dengan kelas animasi baru -->
                     <h1 
-                        class="font-serif text-5xl font-bold text-text-light md:text-7xl"
-                        style="animation: fadeInUp 0.5s ease-out 0.2s forwards; opacity: 0;">
+                        class="font-serif text-5xl font-bold text-text-light md:text-7xl fade-in-item">
                         Bertram Naqa Rayhan I.
                     </h1>
                     <h2 
-                        class="text-3xl font-bold text-text-secondary md:text-5xl"
-                        style="animation: fadeInUp 0.5s ease-out 0.4s forwards; opacity: 0;">
-                        I build things for the web.
+                        class="text-3xl font-bold text-text-secondary md:text-3xl fade-in-item"
+                        id="hero-subtitle">
                     </h2>
                     <p 
-                        class="max-w-xl text-base text-text-secondary"
-                        style="animation: fadeInUp 0.5s ease-out 0.6s forwards; opacity: 0;">
-                        A software developer specializing in building exceptional digital experiences. Currently focused on building accessible, human-centered products.
+                        class="max-w-xl text-base text-text-secondary fade-in-item"
+                        id="hero-description">
                     </p>
                     
                     <div 
-                        class="mt-8"
-                        style="animation: fadeInUp 0.5s ease-out 0.8s forwards; opacity: 0;">
-                        <a href="#projects" class="border border-primary text-primary text-base font-mono px-8 py-3 rounded-md transition-all duration-300 hover:brightness-90 hover:bg-primary/10">
-                            Lihat Proyek Saya
+                        class="mt-8 fade-in-item">
+                        <a href="#projects" class="border border-primary text-primary text-base font-mono px-8 py-3 rounded-md transition-all duration-300 hover:brightness-90 hover:bg-primary/10"
+                        id="hero-button">
                         </a>
                     </div>
 
                     <div 
-                        class="mt-12 flex items-center gap-6"
-                        style="animation: fadeInUp 0.5s ease-out 1s forwards; opacity: 0;">
-                        <a aria-label="GitHub" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1" href="#">
+                        class="mt-12 flex items-center gap-6 fade-in-item">
+                        <a id="github-link" aria-label="GitHub" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1" href="#">
                             <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         </a>
-                        <a aria-label="LinkedIn" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1" href="#">
+                        <a id="linkedin-link" aria-label="LinkedIn" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1" href="#">
                             <svg class="feather feather-linkedin" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
                     </div>
@@ -105,9 +114,6 @@
                     <span class="text-xl font-mono text-primary">01.</span> About Me
                     <span class="flex-grow h-px bg-surface-dark"></span>
                 </h2>
-                <p class="text-base font-normal leading-relaxed text-text-secondary">
-                    A passionate and experienced software engineer with a knack for creating elegant, efficient, and user-friendly applications. My expertise lies in full-stack development, with a focus on modern JavaScript frameworks and cloud technologies. I thrive on solving complex problems and am always eager to learn and adapt in this ever-evolving industry.
-                </p>
             </section>
 
             <!-- Tech Stack (Struktur dari Foto 1) -->
@@ -183,58 +189,8 @@
                     <div class="hidden md:block absolute left-1/2 top-0 h-full w-0.5 bg-surface-dark -translate-x-1/2"></div>
                     
                     <!-- Pembungkus untuk semua item timeline -->
-                    <div class="space-y-8 md:space-y-16">
+                    <div id="timeline-container" class="space-y-8 md:space-y-16">
                         
-                        <!-- === PENGALAMAN 1 === -->
-                        <!-- PENAMBAHAN BARU: kelas 'relative' dan pseudo-element 'before:' -->
-                        <div class="relative before:content-[''] before:absolute before:left-[7px] before:top-0 before:h-full before:w-0.5 before:bg-surface-dark md:before:hidden">
-                            <!-- Ikon -->
-                            <div class="absolute left-2 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 -translate-y-0 md:-translate-y-1/2">
-                                <span class="material-symbols-outlined text-4xl text-primary bg-background-dark rounded-full p-1">
-                                    school
-                                </span>
-                            </div>                            
-                            
-                            <!-- Kartu -->
-                            <div class="ml-10 md:ml-0 md:w-[calc(50%-2rem)] p-4 bg-surface-dark rounded-lg border border-surface-dark transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:text-right">
-                                <h3 class="font-bold text-text-light">Mid-Level Developer</h3>
-                                <p class="text-sm text-primary mb-2">2020-2022</p>
-                                <p class="text-sm text-text-light mb-4">
-                                    Software Engineer at <span class="font-semibold">Innovate Corp.</span>
-                                </p>
-                                <ul class="space-y-2 text-xs text-text-secondary">
-                                    <li class="flex items-start gap-2">
-                                        <span class="text-primary mt-1">></span>
-                                        <span>Maintained and developed new features for a large-scale PHP application.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="text-primary mt-1">></span>
-                                        <span>Collaborated with a team of 5 to migrate a legacy system to a modern Laravel stack.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- === PENGALAMAN 2 === -->
-                        <!-- PENAMBAHAN BARU: kelas 'relative' dan pseudo-element 'before:' -->
-                        <div class="relative before:content-[''] before:absolute before:left-[7px] before:top-0 before:h-full before:w-0.5 before:bg-surface-dark md:before:hidden">
-                            <!-- Ikon -->
-                            <div class="absolute left-2 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 -translate-y-0 md:-translate-y-1/2">
-                                <span class="material-symbols-outlined text-4xl text-primary bg-background-dark rounded-full p-1">
-                                    work
-                                </span>
-                            </div>
-
-                            <!-- Kartu -->
-                            <div class="ml-10 md:ml-auto md:w-[calc(50%-2rem)] p-4 bg-surface-dark rounded-lg border border-surface-dark md:text-right transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
-                                <h3 class="font-bold text-text-light">Senior Developer</h3>
-                                <p class="text-sm text-primary mb-2">2022-Present</p>
-                                <p class="text-sm text-text-light">
-                                    Senior Software Engineer at <span class="font-semibold">Future Systems</span>
-                                </p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </section>
@@ -247,102 +203,7 @@
                 
                 <!-- Pembungkus untuk efek group-hover di seluruh grid -->
                 <div class="group">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        
-                        <div class="group/card relative flex flex-col bg-surface-dark rounded-lg border border-surface-dark overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10 group-hover:opacity-50 group-hover:scale-95 hover:!opacity-100 hover:!scale-100">    
-                            <!-- Badge "Unggulan" -->
-                            <div class="absolute top-0 right-0 m-2 px-2 py-0.5 bg-yellow-400/10 text-yellow-300 text-xs font-bold rounded-full border border-yellow-400/30">
-                                Unggulan
-                            </div>
-
-                            <!-- Gambar Proyek (Placeholder) -->
-                            <div class="aspect-video bg-background-dark">
-                                <!-- Nanti ganti dengan: <img src="/path/to/image1.jpg" alt="Project One" class="w-full h-full object-cover"> -->
-                            </div>
-
-                            <!-- Konten Kartu -->
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-lg font-bold text-text-light transition-colors duration-300 group-hover/card:text-primary">Project One</h3>
-                                <p class="text-text-secondary text-sm mt-2 flex-grow">A brief, one-sentence summary of what this amazing project is all about and its purpose.</p>
-                                
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="text-xs text-primary bg-primary/20 px-2 py-1 rounded-full">Laravel</span>
-                                    <span class="text-xs text-primary bg-primary/20 px-2 py-1 rounded-full">PHP</span>
-                                </div>
-                                
-                                <div class="flex gap-3 mt-6">
-                                    <a href="#" class="flex-1 flex items-center justify-center gap-1.5 h-10 px-4 bg-text-secondary/20 text-text-light font-bold rounded-lg hover:bg-text-secondary/30 transition-colors">
-                                        <span class="material-symbols-outlined text-lg">code</span>
-                                        <span class="text-xs">GitHub</span>
-                                    </a>
-                                    <a href="#" class="flex-1 flex items-center justify-center gap-1.5 h-10 px-4 bg-primary text-background-dark font-bold rounded-lg hover:brightness-90 transition-opacity">
-                                        <span class="material-symbols-outlined text-lg">open_in_new</span>
-                                        <span class="text-xs">Live Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- =================== KARTU PROYEK 2 =================== -->
-                        <div class="group/card flex flex-col bg-surface-dark rounded-lg border border-surface-dark overflow-hidden 
-                                    transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10
-                                    group-hover:opacity-50 group-hover:scale-95 hover:!opacity-100 hover:!scale-100">
-                            
-                            <div class="aspect-video bg-background-dark">
-                                <!-- Nanti ganti dengan: <img src="/path/to/image2.jpg" alt="Project Two" class="w-full h-full object-cover"> -->
-                            </div>
-
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-lg font-bold text-text-light transition-colors duration-300 group-hover/card:text-primary">Project Two</h3>
-                                <p class="text-text-secondary text-sm mt-2 flex-grow">A brief, one-sentence summary of what this amazing project is all about and its purpose.</p>
-                                
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="text-xs text-primary bg-primary/20 px-2 py-1 rounded-full">JavaScript</span>
-                                    <span class="text-xs text-primary bg-primary/20 px-2 py-1 rounded-full">Python</span>
-                                </div>
-                                
-                                <div class="flex gap-3 mt-6">
-                                    <a href="#" class="flex-1 flex items-center justify-center gap-1.5 h-10 px-4 bg-text-secondary/20 text-text-light font-bold rounded-lg hover:bg-text-secondary/30 transition-colors">
-                                        <span class="material-symbols-outlined text-lg">code</span>
-                                        <span class="text-xs">GitHub</span>
-                                    </a>
-                                    <a href="#" class="flex-1 flex items-center justify-center gap-1.5 h-10 px-4 bg-primary text-background-dark font-bold rounded-lg hover:brightness-90 transition-opacity">
-                                        <span class="material-symbols-outlined text-lg">open_in_new</span>
-                                        <span class="text-xs">Live Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- =================== KARTU PROYEK 3 =================== -->
-                        <div class="group/card flex flex-col bg-surface-dark rounded-lg border border-surface-dark overflow-hidden 
-                                    transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10
-                                    group-hover:opacity-50 group-hover:scale-95 hover:!opacity-100 hover:!scale-100">
-                            
-                            <div class="aspect-video bg-background-dark">
-                                <!-- Nanti ganti dengan: <img src="/path/to/image3.jpg" alt="Project Three" class="w-full h-full object-cover"> -->
-                            </div>
-
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-lg font-bold text-text-light transition-colors duration-300 group-hover/card:text-primary">Project Three</h3>
-                                <p class="text-text-secondary text-sm mt-2 flex-grow">A brief, one-sentence summary of what this amazing project is all about and its purpose.</p>
-                                
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="text-xs text-primary bg-primary/20 px-2 py-1 rounded-full">Java</span>
-                                </div>
-                                
-                                <div class="flex gap-3 mt-6">
-                                    <a href="#" class="flex-1 flex items-center justify-center gap-1.5 h-10 px-4 bg-text-secondary/20 text-text-light font-bold rounded-lg hover:bg-text-secondary/30 transition-colors">
-                                        <span class="material-symbols-outlined text-lg">code</span>
-                                        <span class="text-xs">GitHub</span>
-                                    </a>
-                                    <a href="#" class="flex-1 flex items-center justify-center gap-1.5 h-10 px-4 bg-primary text-background-dark font-bold rounded-lg hover:brightness-90 transition-opacity">
-                                        <span class="material-symbols-outlined text-lg">open_in_new</span>
-                                        <span class="text-xs">Live Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="projects-grid">
 
                     </div>
                 </div>
@@ -358,24 +219,23 @@
                     
                     <!-- Kolom Kiri: Teks & Tombol Email -->
                     <div class="text-left">
-                        <h3 class="text-3xl font-bold text-text-light">Get In Touch</h3>
-                        <p class="text-text-secondary mt-3 mb-6">
-                            My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+                        <h3 id="contact-title" class="text-3xl font-bold text-text-light"></h3>
+                        <p id="contact-description" class="text-text-secondary mt-3 mb-6">
                         </p>
 
                         <!-- === PENAMBAHAN BARU: IKON SOSIAL === -->
                         <div class="flex items-center gap-6 mb-8">
-                            <a href="#" aria-label="GitHub" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
+                            <a id="github-link" href="#" aria-label="GitHub" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                             </a>
-                            <a href="#" aria-label="LinkedIn" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
+                            <a id="linkedin-link" href="#" aria-label="LinkedIn" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                             </a>
                         </div>
 
-                        <a href="mailto:your.email@example.com" class="inline-flex items-center justify-center gap-2 h-12 px-6 bg-primary text-background-dark text-base font-bold rounded-lg transition-transform duration-300 hover:-translate-y-1 hover:brightness-90">
+                        <a href="mailto:bertramrayhan1357@gmail.com" class="inline-flex items-center justify-center gap-2 h-12 px-6 bg-primary text-background-dark text-base font-bold rounded-lg transition-transform duration-300 hover:-translate-y-1 hover:brightness-90">
                             <span class="material-symbols-outlined">email</span>
-                            Say Hello
+                            <span id="contact-email-button"></span>
                         </a>
                     </div>
 
@@ -384,11 +244,11 @@
                         <!-- Input Nama dengan Ikon -->
                         <div class="relative">
                             <input class="block w-full px-4 py-3 bg-surface-dark border-text-secondary/50 rounded-lg text-text-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors peer" 
-                                id="name" placeholder=" " type="text"/>
+                                id="name" placeholder=" " type="text" name="name" required/>
                             <label for="name" 
                                 class="absolute left-4 top-3 text-text-secondary transition-all duration-300 
                                         peer-placeholder-shown:top-3 peer-placeholder-shown:text-base 
-                                        peer-focus:-top-2.5 peer-focus:text-primary peer-focus:text-xs                                        
+                                        peer-focus:-top-2.5 peer-focus:text-primary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-primary peer-[:not(:placeholder-shown)]:text-xs                                        
                                         peer-focus:bg-surface-dark peer-focus:px-1
                                         -top-2.5 text-xs text-primary bg-surface-dark px-1">
                                 Name
@@ -398,11 +258,11 @@
                         <!-- Input Email dengan Floating Label -->
                         <div class="relative">
                             <input class="block w-full px-4 py-3 bg-surface-dark border-text-secondary/50 rounded-lg text-text-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors peer" 
-                                id="email" placeholder=" " type="email"/>
+                                id="email" placeholder=" " type="email" name="email" required/>
                             <label for="email" 
                                 class="absolute left-4 top-3 text-text-secondary transition-all duration-300 
                                         peer-placeholder-shown:top-3 peer-placeholder-shown:text-base 
-                                        peer-focus:-top-2.5 peer-focus:text-primary peer-focus:text-xs
+                                        peer-focus:-top-2.5 peer-focus:text-primary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-primary peer-[:not(:placeholder-shown)]:text-xs
                                         peer-focus:bg-surface-dark peer-focus:px-1
                                         -top-2.5 text-xs text-primary bg-surface-dark px-1">
                                 Email
@@ -412,11 +272,11 @@
                         <!-- Textarea dengan Floating Label -->
                         <div class="relative">
                             <textarea class="block w-full px-4 py-3 bg-surface-dark border-text-secondary/50 rounded-lg text-text-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors peer" 
-                                    id="message" placeholder=" " rows="5"></textarea>
+                                    id="message" placeholder=" " rows="5" name="message" required></textarea>
                             <label for="message" 
                                 class="absolute left-4 top-3 text-text-secondary transition-all duration-300 
                                         peer-placeholder-shown:top-3 peer-placeholder-shown:text-base 
-                                        peer-focus:-top-2.5 peer-focus:text-primary peer-focus:text-xs                                        
+                                        peer-focus:-top-2.5 peer-focus:text-primary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-primary peer-[:not(:placeholder-shown)]:text-xs                                        
                                         peer-focus:bg-surface-dark peer-focus:px-1
                                         -top-2.5 text-xs text-primary bg-surface-dark px-1">
                                 Your Message
@@ -424,8 +284,7 @@
                         </div>
                         
                         <!-- Tombol Kirim Pesan -->
-                        <button class="h-12 w-full px-5 bg-primary text-background-dark text-base font-bold rounded-lg hover:brightness-90 transition-all duration-300 hover:-translate-y-1 cursor-pointer" type="submit">
-                            Send Message
+                        <button id="contact-form-button" class="h-12 w-full px-5 bg-primary text-background-dark text-base font-bold rounded-lg hover:brightness-90 transition-all duration-300 hover:-translate-y-1 cursor-pointer" type="submit">
                         </button>
                     </form>
                 </div>
@@ -442,22 +301,14 @@
             © 2025 Bertram Naqa Rayhan I.
         </p>
 
-        <!-- Bagian Tengah (Hanya di Desktop) -->
-        <p class="hidden md:block text-xs text-text-secondary font-mono">
-            Dibangun dengan 
-            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="font-semibold text-text-light hover:text-primary transition-colors">Tailwind CSS</a> 
-            & 
-            <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer" class="font-semibold text-text-light hover:text-primary transition-colors">Vite</a>
-        </p>
-
         <!-- Bagian Kanan: Ikon Sosial -->
         <div class="flex items-center gap-6">
-            <a href="#" aria-label="GitHub" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
+            <a id="github-link" href="#" aria-label="GitHub" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                 </svg>
             </a>
-            <a href="#" aria-label="LinkedIn" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
+            <a id="linkedin-link" href="#" aria-label="LinkedIn" class="text-text-secondary transition-all duration-300 hover:text-primary hover:-translate-y-1">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect height="12" width="4" x="2" y="9"></rect>
@@ -472,21 +323,17 @@
 </div>
 
 <template id="project-card-template">
-    <div class="group/card relative flex flex-col bg-surface-dark rounded-lg border border-surface-dark overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10 group-hover:opacity-50 group-hover:scale-95 hover:!opacity-100 hover:!scale-100">    
-                            <!-- Badge "Unggulan" -->
-        <div class="absolute top-0 right-0 m-2 px-2 py-0.5 bg-yellow-400/10 text-yellow-300 text-xs font-bold rounded-full border border-yellow-400/30">
-            Unggulan
-        </div>
+    <div class="group/card relative flex flex-col bg-surface-dark rounded-lg border border-surface-dark overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10 group-hover:opacity-50 group-hover:scale-95 hover:!opacity-100 hover:!scale-100">
 
         <!-- Gambar Proyek (Placeholder) -->
         <div class="aspect-video bg-background-dark">
-            <!-- Nanti ganti dengan: <img src="/path/to/image1.jpg" alt="Project One" class="w-full h-full object-cover"> -->
+
         </div>
 
         <!-- Konten Kartu -->
         <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-lg font-bold text-text-light transition-colors duration-300 group-hover/card:text-primary">Project One</h3>
-            <p class="text-text-secondary text-sm mt-2 flex-grow">A brief, one-sentence summary of what this amazing project is all about and its purpose.</p>
+            <p class="text-text-secondary text-sm mt-2 flex-grow text-justify">A brief, one-sentence summary of what this amazing project is all about and its purpose.</p>
             
             <div class="flex flex-wrap gap-2 mt-4">
                 <span class="text-xs text-primary bg-primary/20 px-2 py-1 rounded-full">Laravel</span>
@@ -503,6 +350,26 @@
                     <span class="text-xs">Live Demo</span>
                 </a>
             </div>
+        </div>
+    </div>
+</template>
+
+<template id="timeline-template">
+    <div class="relative before:content-[''] before:absolute before:left-[7px] before:top-0 before:h-full before:w-0.5 before:bg-surface-dark md:before:hidden">
+        <!-- Ikon -->
+        <div class="absolute left-2 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 -translate-y-0 md:-translate-y-1/2">
+            <span class="material-symbols-outlined text-4xl text-primary bg-background-dark rounded-full p-1">
+                school
+            </span>
+        </div>                            
+        
+        <!-- Kartu -->
+        <div id="timeline-card" class="ml-10 md:w-[calc(50%-2rem)] p-4 bg-surface-dark rounded-lg border border-surface-dark transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+            <h3 class="font-bold text-text-light">Mid-Level Developer</h3>
+            <p class="text-sm text-primary mb-2">2020-2022</p>
+            <p class="text-sm text-text-light mb-4">
+                Software Engineer at <span class="font-semibold">Innovate Corp.</span>
+            </p>
         </div>
     </div>
 </template>
