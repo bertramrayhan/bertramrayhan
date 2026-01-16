@@ -1,61 +1,98 @@
 <h1 align="center">Hi there 👋, I'm Bertram</h1>
-<p align="center">An Informatics Engineering student who loves building software & solving real-world problems.</p>
+<p align="center">A proactive and results-driven IT student who thrives on turning complex real-world problems into functional and innovative software.</p>
 
 <br/>
 
 ## 💫 About Me
 
-- 🔭 I’m currently working on:  
-  Building my personal project — [Check it out here](https://github.com/bertramrayhan/Cognito-Deck)
+- 🔭 **I’m currently building:** [**Jangkau**](https://github.com/bertramrayhan/Jangkau ) — an AI-powered web scraping aggregator for coding competitions. This project uses Python to flexibly extract data from diverse HTML structures and serves it through a clean interface.
 
-- 🌱 I’m currently learning:  
-  Web development and diving into basic system security 🔐
+- 🌱 **I’m currently deepening my knowledge in:** Modern web architectures, including Headless CMS (Sanity.io), and exploring the practical applications of AI in web development.
 
-- 👯 I’m looking to collaborate on:  
-  Open-source projects or small-scale systems involving backend, databases, or automation ⚙️
+- 🤝 **I'm open to collaborating on:** Challenging open-source projects, particularly those involving complex backend logic, system design, or automation.
 
-- 🤔 I’m looking for help with:  
-  Learning best practices in web development & improving system security
-
-- 📫 How to reach me:  
-  bertramrayhan1357@gmail.com
+- 📫 **How to reach me:** bertramrayhan1357@gmail.com
 
 <br/>
 
-## 💻 Tech Stack
+## 🛠️ My Tech Stack
 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) 
-![JavaFX](https://img.shields.io/badge/javafx-%23FF0000.svg?style=for-the-badge&logo=javafx&logoColor=white) 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
-![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+**Backend**
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=java,python,php,laravel,mysql" />
+  </a>
+</p>
+
+**Frontend**
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,vite" />
+  </a>
+</p>
+
+**Tools & Version Control**
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=git,github,vercel" />
+  </a>
+</p>
+
 
 <br/>
 
-## 🧱 Projects I'm Proud Of
+## 🚀 My Featured Projects
 
-### 🧾 Offline POS System based Desktop App  
-Cashier system with offline support and RFID attendance  
-📂 [View Repository](https://github.com/bertramrayhan/dumdumcell)  
+### 🥇 Student Leave Management System
+I took a primary role in building a campus-wide system to digitize a complex student leave process. I was specifically responsible for the core backend logic, architecting and implementing the **multi-role approval workflow** that routes a request through 4 sequential approvers before reaching the academic admin for final document generation.  
+**Tech Stack:** `Laravel`, `Vite`, `Tailwind CSS`  
+📂 *Repository for this project is private (university-owned).*  
+📸 Screenshot:  
+<img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/website-cuti-mahasiswa-landing-page.png" width="500"/>
+
+
+### 🥈 Jangkau - Competition Aggregator
+An innovative aggregator that uses **Python & AI** to scrape and centralize information about coding competitions from various websites.  
+**Tech Stack:** `Python`, `AI/ML`, `Web Scraping`  
+📂 [View Repository](https://github.com/bertramrayhan/Jangkau )  
+🔗 [Visit Website](https://jangkau-id.vercel.app/)  
+📸 Screenshot:  
+<img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/jangkau.png" width="500"/>
+
+  
+
+
+### 🥉 Offline POS Desktop App
+An **award-winning (3rd place)** Point-of-Sale desktop app featuring hardware integration (RFID, Barcode Scanner, Thermal Printer).  
+**Tech Stack:** `Java`, `JavaFX`, `MySQL`  
+📂 [View Repository](https://github.com/bertramrayhan/dumdumcell )  
 📸 Screenshot:  
 <img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/halaman-beranda-pemilik.png" width="500"/>
 
 <br/>
 
-### 🌐 Portfolio Website 
-A personal site to showcase skills and projects   
-📂 [View Repository](https://github.com/bertramrayhan/bertramrayhan)  
-🔗 [Visit Website](https://bertramrayhan.vercel.app)  
-📸 Screenshot:  
-<img src="https://raw.githubusercontent.com/bertramrayhan/bertramrayhan/main/src/assets/images/demo-portfolio-en.png" width="500"/>
+---
+### 📊 My GitHub Stats
+
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=bertramrayhan&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bertramrayhan&layout=compact&langs_count=8&theme=radical"/>
+</p>
 
 <br/>
 
 ## 🌐 Socials
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bertramrayhan.dev)
-&nbsp;
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bertram-indratno/)
-&nbsp;
-[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?style=flat&logo=discord&logoColor=white)](https://discord.com/users/722326769155309638)
+<p align="left">
+  <a href="https://www.linkedin.com/in/bertram-indratno/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://www.fiverr.com/s/rEBz4Nb" target="_blank">
+    <img src="https://img.shields.io/badge/Fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white" />
+  </a>
+  <a href="https://instagram.com/bertramrayhan.dev" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+  </a>
+  <a href="https://discord.com/users/722326769155309638" target="_blank">
+    <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" />
+  </a>
+</p>
