@@ -48,7 +48,7 @@ I took a primary role in building a campus-wide system to digitize a complex stu
 **Tech Stack:** `Laravel`, `Vite`, `Tailwind CSS`  
 📂 *Repository for this project is private (university-owned).*  
 📸 Screenshot:  
-<img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/website-cuti-mahasiswa-landing-page.png" width="500"/>
+<img src="https://raw.githubusercontent.com/bertramrayhan/bertramrayhan/main/src/assets/images/website-cuti-mahasiswa-landing-page.png" width="500"/>
 
 
 ### 🥈 Jangkau - Competition Aggregator
@@ -57,7 +57,7 @@ An innovative aggregator that uses **Python & AI** to scrape and centralize info
 📂 [View Repository](https://github.com/bertramrayhan/Jangkau )  
 🔗 [Visit Website](https://jangkau-id.vercel.app/)  
 📸 Screenshot:  
-<img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/jangkau.png" width="500"/>
+<img src="https://raw.githubusercontent.com/bertramrayhan/bertramrayhan/main/src/assets/images/jangkau.png" width="500"/>
 
   
 
@@ -68,16 +68,6 @@ An **award-winning (3rd place)** Point-of-Sale desktop app featuring hardware in
 📂 [View Repository](https://github.com/bertramrayhan/dumdumcell )  
 📸 Screenshot:  
 <img src="https://raw.githubusercontent.com/bertramrayhan/dumdumcell/main/src/assets/demo/halaman-beranda-pemilik.png" width="500"/>
-
-<br/>
-
----
-### 📊 My GitHub Stats
-
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=bertramrayhan&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bertramrayhan&layout=compact&langs_count=8&theme=radical"/>
-</p>
 
 <br/>
 
